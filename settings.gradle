@@ -1,1 +1,1 @@
-include ':Calculator'
+include ':Calculator', ':resourceimage'
