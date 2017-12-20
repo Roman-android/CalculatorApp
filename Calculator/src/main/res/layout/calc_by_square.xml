@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calcBySquare"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_light"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:visibility="gone"
+    tools:showIn="@layout/bottom_sheet">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="-5dp"
+        android:gravity="center_horizontal"
+        android:text="Расчет по площади" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/length_of_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Длина листа" />
+
+        <EditText
+            android:id="@+id/num_of_length"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/width_of_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ширина листа" />
+
+        <EditText
+            android:id="@+id/num_of_width"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/count_of_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Количество листов" />
+
+        <EditText
+            android:id="@+id/num_of_lists"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/thick_of_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Толщина материала" />
+
+        <Spinner
+            android:id="@+id/spinnerSquare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <!--        <EditText
+            android:id="@+id/num_of_thick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="number" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        tools:ignore="RtlSymmetry">
+
+        <TextView
+            android:id="@+id/cost_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Стоимость (руб.)" />
+
+        <TextView
+            android:id="@+id/cost_by_square"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</LinearLayout>

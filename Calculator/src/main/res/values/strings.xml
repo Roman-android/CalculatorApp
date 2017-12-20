@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CalculatorApp</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="empty_list">Нет данных</string>
+    <string name="materials">Материалы</string>
+    <string name="about">О программе</string>
+    <string name="profil">Профиль</string>
+</resources>

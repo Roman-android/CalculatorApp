@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="60dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+
+    <TextView
+        android:id="@+id/bottom_sheet_pick"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="Потяните вверх, чтоб рассчитать стоимость" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/factor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/but_calc_meters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Расчет по п.м."
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/but_calc_square"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Расчет по площади"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <include layout="@layout/calc_by_square" />
+
+        <include layout="@layout/calc_by_meters" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
