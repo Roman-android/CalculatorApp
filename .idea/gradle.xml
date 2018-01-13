@@ -9,7 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Calculator" />
-            <option value="$PROJECT_DIR$/resourceimage" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
