@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Calculator/Calculator.iml" filepath="$PROJECT_DIR$/Calculator/Calculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/CalculatorApp.iml" filepath="$PROJECT_DIR$/CalculatorApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/resourceimage/resourceimage.iml" filepath="$PROJECT_DIR$/resourceimage/resourceimage.iml" />
     </modules>
   </component>
 </project>

@@ -1,15 +1,13 @@
 package ru.roman.calculatorapp.adapters;
 
 import android.content.Context;
-import android.support.v4.view.LayoutInflaterCompat;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import ru.roman.calculatorapp.R;
 
@@ -21,18 +19,20 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     private Context mContext;
     private int [] mImageId;
+    private String [] mDescText;
 
-    ImageView imageView;
     private LayoutInflater mLayoutInflater;
+    private ImageView imageView;
+    private TextView descText;
 
-    public ViewPagerAdapter(Context context,int [] imgId){
+    public ViewPagerAdapter(Context context,int [] imgId,String [] description){
         this.mContext = context;
         this.mImageId = imgId;
+        this.mDescText = description;
     }
 
     @Override
     public int getCount() {
-        //Toast.makeText(mContext, mImageId.length, Toast.LENGTH_SHORT).show();
         return mImageId.length;
     }
 
@@ -45,10 +45,19 @@ public class ViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
 
         mLayoutInflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = mLayoutInflater.inflate(R.layout.fragment_view_pager, container,false);
-        imageView = (ImageView)itemView.findViewById(R.id.imgMaterial);
+        View itemView = null;
+        if (mLayoutInflater != null) {
+            itemView = mLayoutInflater.inflate(R.layout.fragment_view_pager, container,false);
+        }
+        if (itemView != null) {
+            imageView = itemView.findViewById(R.id.imgMaterial);
+        }
+        if (itemView != null) {
+            descText = itemView.findViewById(R.id.description);
+        }
 
         imageView.setImageResource(mImageId[position]);
+        descText.setText(mDescText[position]);
 
         container.addView(itemView);
 
@@ -57,6 +66,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((LinearLayout)object);
+        container.removeView((ConstraintLayout)object);
     }
 }

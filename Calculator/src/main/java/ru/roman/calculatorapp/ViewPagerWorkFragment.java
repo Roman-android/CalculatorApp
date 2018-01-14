@@ -69,11 +69,15 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
     private String selection;
 
     //массив для хранения всех картинок для ViewPager
-    private int[][][] kindMaterialArray;
+    //private int[][][] kindMaterialArray;
 
     //массив для хранения всех значений spinnerMeters
     private String[][][] spinnerMetersArray;
+
     ViewPagerAdapter viewPagerAdapter;
+    RecourcesToViewPager recourcesToViewPager;
+    private int[] imgShow;
+    private String [] descrText;
 
     private static final int PERMISSION_REQUEST_CODE = 123;
 
@@ -99,32 +103,9 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         position_from_levelFragment_1 = getArguments().getInt("position_from_levelFragment_1", 0);
         selection = getArguments().getString("selection","");
 
-        // TODO: 07.08.2017 массивы для картинок ViewPager
-        int[] materials_1 = new int[]{R.drawable.ic_essential_regular_31_document_copy, R.drawable.ic_essential_regular_33_lock_open,
-                R.drawable.ic_essential_regular_36_download, R.drawable.ic_essential_regular_41_home};
-        int[] materials_2 = new int[]{R.drawable.ic_essential_regular_44_phone, R.drawable.ic_essential_regular_45_user,
-                R.drawable.ic_essential_regular_46_print};
-
-        int[] materials_3 = new int[]{R.drawable.ic_essential_regular_47_video, R.drawable.ic_essential_regular_48_clipboard,
-                R.drawable.ic_essential_regular_49_magnifier};
-        int[] materials_4 = new int[]{R.drawable.ic_essential_regular_52_photo, R.drawable.ic_essential_regular_54_desktop,
-                R.drawable.ic_essential_regular_55_attachment, R.drawable.ic_essential_regular_57_globe};
-
-        int[][] massivMat_1 = new int[][]{materials_1, materials_2};
-        int[][] massivMat_2 = new int[][]{materials_3, materials_4};
-
-        kindMaterialArray = new int[][][]{massivMat_1, massivMat_2};
-
-        // TODO: 07.08.2017 массивы для значений spinnerMeters
-        String[] spinnerMetersNum_1 = new String[]{"1", "1.5", "2"};
-        String[] spinnerMetersNum_2 = new String[]{"2", "2.5", "3"};
-        String[] spinnerMetersNum_3 = new String[]{"1.2", "1.7", "2.1"};
-        String[] spinnerMetersNum_4 = new String[]{"1.9", "2.2", "2.5"};
-
-        String[][] massivSpinnerMeters_1 = new String[][]{spinnerMetersNum_1, spinnerMetersNum_2};
-        String[][] massivSpinnerMeters_2 = new String[][]{spinnerMetersNum_3, spinnerMetersNum_4};
-
-        spinnerMetersArray = new String[][][]{massivSpinnerMeters_1, massivSpinnerMeters_2};
+        recourcesToViewPager = new RecourcesToViewPager(getContext(), position_from_listMain,position_from_levelFragment_1);
+        imgShow = recourcesToViewPager.chooseImgArray(position_from_listMain,position_from_levelFragment_1);
+        descrText = recourcesToViewPager.chooseTextArray(position_from_listMain,position_from_levelFragment_1);
 
         if (position_from_listMain == 0) {
             if (position_from_levelFragment_1 == 0) {
@@ -159,7 +140,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
         // TODO: 22.07.2017 подключаем viewPagerAdapter
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-        viewPagerAdapter = new ViewPagerAdapter(getContext(), kindMaterialArray[position_from_listMain][position_from_levelFragment_1]);
+        viewPagerAdapter = new ViewPagerAdapter(getContext(), imgShow, descrText);
         viewPager.setAdapter(viewPagerAdapter);
 
         // TODO: 25.09.2017 Отправка СМС
@@ -198,8 +179,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getActivity(),
-                                "Необходимо разрешен" +
-                                        "ие на отправку СМС",
+                                "Необходимо разрешение на отправку СМС",
                                 Toast.LENGTH_SHORT).show();
                         requestPermissionWithRationale();
 
@@ -226,7 +206,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         countOfIncut.addTextChangedListener(this);
 
         spinnerMeters = (Spinner) view.findViewById(R.id.spinnerMeters);
-        ArrayAdapter<String> arrayAdapterMeters = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, spinnerMetersArray[position_from_listMain][position_from_levelFragment_1]);
+        ArrayAdapter<String> arrayAdapterMeters = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, recourcesToViewPager.chooseSpinnerArray(position_from_listMain,position_from_levelFragment_1));
         spinnerMeters.setAdapter(arrayAdapterMeters);
 
         result_cost_by_meters = (TextView) view.findViewById(R.id.cost_by_meters);
