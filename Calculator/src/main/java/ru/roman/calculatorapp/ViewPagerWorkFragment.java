@@ -2,18 +2,11 @@ package ru.roman.calculatorapp;
 
 
 import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.telephony.SmsManager;
@@ -31,7 +24,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lypeer.fcpermission.FcPermissions;
+import com.lypeer.fcpermission.impl.FcPermissionsCallbacks;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
 
@@ -39,7 +36,7 @@ import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ViewPagerWorkFragment extends Fragment implements Button.OnClickListener, TextWatcher {
+public class ViewPagerWorkFragment extends Fragment implements Button.OnClickListener, TextWatcher,FcPermissionsCallbacks {
 
     private final String MY_LOG = "myFilterPageWork";
     private View bottomSheet;
@@ -103,6 +100,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         position_from_levelFragment_1 = getArguments().getInt("position_from_levelFragment_1", 0);
         selection = getArguments().getString("selection","");
 
+        // TODO: 23.01.2018 Получаем текст и картинки для класса ViewPager в зависимости от выбранного пункта
         recourcesToViewPager = new RecourcesToViewPager(getContext(), position_from_listMain,position_from_levelFragment_1);
         imgShow = recourcesToViewPager.chooseImgArray(position_from_listMain,position_from_levelFragment_1);
         descrText = recourcesToViewPager.chooseTextArray(position_from_listMain,position_from_levelFragment_1);
@@ -128,10 +126,12 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_view_pager_work, container, false);
-        ((ActivityMain)getActivity()).toolbar.setTitle(selection);
+        if (((ActivityMain)getActivity()) != null) {
+            ((ActivityMain)getActivity()).toolbar.setTitle(selection);
+        }
 
         Log.d(MY_LOG, "ViewPagerWork: Сработал onCreateView");
         Log.d(MY_LOG, "position_from_listMain: "+position_from_listMain);
@@ -153,8 +153,9 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
                     textSms = "Pogonnii metr: Metrov: " + valueMeters + " Vrezok: " + valueIncut + " Tolshina: " + valueSpinnerMetr +
                             " Stoimost: " + roundedResultMetrs;
                     Toast.makeText(getActivity(), textSms, Toast.LENGTH_SHORT).show();
-                    //sendSms(textSms);
-                    if (hasPermissions()) {
+                    requestSMSPermission();
+
+                    /*if (hasPermissions()) {
                         sendSms(textSms);
                         Toast.makeText(getActivity(),
                                 "Сообщение СМС отправлено!",
@@ -164,15 +165,14 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
                                 "Необходимо разрешение на отправку СМС",
                                 Toast.LENGTH_SHORT).show();
                         requestPermissionWithRationale();
-
-                    }
+                    }*/
                 } else if (result_cost_by_square.getText() != "Заполните все поля" && result_cost_by_square.length() > 0 && calcBySquare.getVisibility() == View.VISIBLE) {
                     textSms = "Raschet po ploshadi: Dlina: " + valueLength + " Shirina: " + valueWidth +
                             " Kolichestvo: " + valueNumList + " Tolshina: " + valueSpinnerSq + " Stoimost " + roundedResultSquare;
 
                     //sendSms(textSms);
                     Toast.makeText(getActivity(), textSms, Toast.LENGTH_SHORT).show();
-                    if (hasPermissions()) {
+                    /*if (hasPermissions()) {
                         sendSms(textSms);
                         Toast.makeText(getActivity(),
                                 "Сообщение СМС отправлено!",
@@ -182,8 +182,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
                                 "Необходимо разрешение на отправку СМС",
                                 Toast.LENGTH_SHORT).show();
                         requestPermissionWithRationale();
-
-                    }
+                    }*/
                 } else {
                     Log.d(MY_LOG, "Заполните все поля");
                     Toast.makeText(getActivity(), "Заполните все поля! Сообщение с заказом не отправлено!", Toast.LENGTH_SHORT).show();
@@ -303,15 +302,19 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         Log.d(MY_LOG, "Сообщение: " + textSms);
 
         smsManager.sendTextMessage(telMoy, null, textSms, null, null);
-
     }
 
+    private void requestSMSPermission () {
+        FcPermissions.requestPermissions(getActivity(),"Требуется разрешение отправить СМС", FcPermissions.REQ_PER_CODE,Manifest.permission.SEND_SMS);
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ((ActivityMain) getActivity()).setDrawerOnIcon(false);
+        if (getActivity() != null) {
+            ((ActivityMain) getActivity()).setDrawerOnIcon(false);
+        }
     }
 
     // TODO: 29.06.2017 обрабатываем нажатия на кнопки "Расчет по п.м." и "Расчет по площади"
@@ -412,7 +415,22 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
     }
 
+    @Override
+    public void onPermissionsGranted(int i, List<String> list) {
+        Toast.makeText(getActivity(), "Разрешение получено!", Toast.LENGTH_SHORT).show();
+        sendSms(textSms);
+    }
+
+    @Override
+    public void onPermissionsDenied(int i, List<String> list) {
+        FcPermissions.checkDeniedPermissionsNeverAskAgain(getActivity(),"Разрешение для отправки СМС нужно для...",R.string.settings,R.string.cancel,list);
+        Toast.makeText(getActivity(), "Разрешение НЕ получено!", Toast.LENGTH_SHORT).show();
+    }
+
     // TODO: 25.09.2017 Работаем с разрешениями Android 6.0 и выше
+
+
+    /*
     private boolean hasPermissions() {
         int res;
         String[] permssions = new String[]{Manifest.permission.SEND_SMS};
@@ -514,5 +532,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             requestPerms();
         }
     }
+    */
 
 }
