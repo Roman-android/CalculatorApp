@@ -2,6 +2,7 @@ package ru.roman.calculatorapp.fragmentsNavigation;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -51,11 +52,11 @@ public class LevelFragment_1 extends Fragment {
     private Integer[] mImageArrayLevel_1 = {R.drawable.ic_opti1_10, R.drawable.ic_opti1_09, R.drawable.ic_opti1_08, R.drawable.ic_opti1_07,
             R.drawable.ic_opti1_06, R.drawable.ic_opti1_05, R.drawable.ic_opti1_04, R.drawable.ic_opti1_03,
             R.drawable.ic_opti1_02};
-    private String[] mItemArray_1 = {"Рыжик 1-1", "Барсик 1-2", "Мурзик 1-3",
-            "Мурка 1-4", "Васька 1-5", "Томасина 1-6", "Кристина 1-7", "Пушок 1-8", "Дымка 1-9"};
+    private String[] mItemArray_1 = {"Трафареты из алюминия 1-1", "Трафареты из магнитоалюминия 1-2", "Трафареты из магнитопластика 1-3",
+            "Трафареты из нержавейки 1-4", "Трафареты из оцинковки 1-5", "Трафареты из пластика ПЭТ 1-6", "Трафареты из пленки ORACAL 1-7", "Пушок 1-8", "Дымка 1-9"};
 
-    private String[] mItemArray_2 = {"Рыжик 2-1", "Барсик 2-2", "Мурзик 2-3",
-            "Мурка 2-4", "Васька 2-5", "Томасина 2-6", "Кристина 2-7", "Пушок 2-8", "Дымка 2-9"};
+    private String[] mItemArray_2 = {"Буквы деревянные 2-1", "Буквы из композита 2-2", "Буквы из оргстекла 2-3",
+            "Буквы из ПВХ 2-4", "Буквы из ПЕНОПЛАСТА 2-5", "Томасина 2-6", "Кристина 2-7", "Пушок 2-8", "Дымка 2-9"};
 
     private String[] mItemArray_3 = {"Рыжик 3-1", "Барсик 3-2", "Мурзик 3-3",
             "Мурка 3-4", "Васька 3-5", "Томасина 3-6", "Кристина 3-7", "Пушок 3-8", "Дымка 3-9"};
@@ -94,7 +95,7 @@ public class LevelFragment_1 extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         Log.d(MY_LOG, "LevelFragment1: Сработал onCreateView");

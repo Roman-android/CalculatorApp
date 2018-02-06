@@ -28,7 +28,7 @@
             android:id="@+id/length_of_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Длина листа" />
+            android:text="Длина листа (мм)" />
 
         <EditText
             android:id="@+id/num_of_length"
@@ -49,7 +49,7 @@
             android:id="@+id/width_of_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ширина листа" />
+            android:text="Ширина листа (мм)" />
 
         <EditText
             android:id="@+id/num_of_width"
@@ -92,21 +92,13 @@
             android:id="@+id/thick_of_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Толщина материала" />
+            android:text="Толщина материала (мм)" />
 
         <Spinner
             android:id="@+id/spinnerSquare"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
-        <!--        <EditText
-            android:id="@+id/num_of_thick"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:inputType="number" />-->
 
     </LinearLayout>
 

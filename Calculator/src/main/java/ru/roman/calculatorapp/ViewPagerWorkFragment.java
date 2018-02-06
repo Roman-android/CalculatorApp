@@ -65,14 +65,13 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
     private int position_from_levelFragment_1;
     private String selection;
 
-    //массив для хранения всех картинок для ViewPager
-    //private int[][][] kindMaterialArray;
-
-    //массив для хранения всех значений spinnerMeters
-    private String[][][] spinnerMetersArray;
-
+    // TODO: 30.01.2018 Импорт классов
     ViewPagerAdapter viewPagerAdapter;
     RecourcesToViewPager recourcesToViewPager;
+    CalculationFormula calculationFormula;
+
+
+
     private int[] imgShow;
     private String [] descrText;
 
@@ -102,8 +101,12 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
         // TODO: 23.01.2018 Получаем текст и картинки для класса ViewPager в зависимости от выбранного пункта
         recourcesToViewPager = new RecourcesToViewPager(getContext(), position_from_listMain,position_from_levelFragment_1);
-        imgShow = recourcesToViewPager.chooseImgArray(position_from_listMain,position_from_levelFragment_1);
-        descrText = recourcesToViewPager.chooseTextArray(position_from_listMain,position_from_levelFragment_1);
+        imgShow = recourcesToViewPager.chooseImgArray();
+        descrText = recourcesToViewPager.chooseTextArray();
+
+
+
+
 
         if (position_from_listMain == 0) {
             if (position_from_levelFragment_1 == 0) {
@@ -143,6 +146,10 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         viewPagerAdapter = new ViewPagerAdapter(getContext(), imgShow, descrText);
         viewPager.setAdapter(viewPagerAdapter);
 
+
+        // TODO: 30.01.2018 Инициализируем класс CalculationFormula
+        calculationFormula = new CalculationFormula(position_from_listMain,position_from_levelFragment_1);
+
         // TODO: 25.09.2017 Отправка СМС
         fab = (FloatingActionButton) view.findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -151,38 +158,13 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
                 if (result_cost_by_meters.getText() != "Заполните все поля" && result_cost_by_meters.length() > 0 && calcByMeters.getVisibility() == View.VISIBLE) {
                     textSms = "Pogonnii metr: Metrov: " + valueMeters + " Vrezok: " + valueIncut + " Tolshina: " + valueSpinnerMetr +
-                            " Stoimost: " + roundedResultMetrs;
+                            " Stoimost: " + calculationFormula.roundMetr();
                     Toast.makeText(getActivity(), textSms, Toast.LENGTH_SHORT).show();
                     requestSMSPermission();
-
-                    /*if (hasPermissions()) {
-                        sendSms(textSms);
-                        Toast.makeText(getActivity(),
-                                "Сообщение СМС отправлено!",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getActivity(),
-                                "Необходимо разрешение на отправку СМС",
-                                Toast.LENGTH_SHORT).show();
-                        requestPermissionWithRationale();
-                    }*/
                 } else if (result_cost_by_square.getText() != "Заполните все поля" && result_cost_by_square.length() > 0 && calcBySquare.getVisibility() == View.VISIBLE) {
                     textSms = "Raschet po ploshadi: Dlina: " + valueLength + " Shirina: " + valueWidth +
-                            " Kolichestvo: " + valueNumList + " Tolshina: " + valueSpinnerSq + " Stoimost " + roundedResultSquare;
-
-                    //sendSms(textSms);
+                            " Kolichestvo: " + valueNumList + " Tolshina: " + valueSpinnerSq + " Stoimost " + calculationFormula.roundSquare();
                     Toast.makeText(getActivity(), textSms, Toast.LENGTH_SHORT).show();
-                    /*if (hasPermissions()) {
-                        sendSms(textSms);
-                        Toast.makeText(getActivity(),
-                                "Сообщение СМС отправлено!",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getActivity(),
-                                "Необходимо разрешение на отправку СМС",
-                                Toast.LENGTH_SHORT).show();
-                        requestPermissionWithRationale();
-                    }*/
                 } else {
                     Log.d(MY_LOG, "Заполните все поля");
                     Toast.makeText(getActivity(), "Заполните все поля! Сообщение с заказом не отправлено!", Toast.LENGTH_SHORT).show();
@@ -205,7 +187,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         countOfIncut.addTextChangedListener(this);
 
         spinnerMeters = (Spinner) view.findViewById(R.id.spinnerMeters);
-        ArrayAdapter<String> arrayAdapterMeters = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, recourcesToViewPager.chooseSpinnerArray(position_from_listMain,position_from_levelFragment_1));
+        ArrayAdapter<String> arrayAdapterMeters = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, recourcesToViewPager.chooseSpinnerArray());
         spinnerMeters.setAdapter(arrayAdapterMeters);
 
         result_cost_by_meters = (TextView) view.findViewById(R.id.cost_by_meters);
@@ -262,7 +244,8 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 valueSpinnerMetr = spinnerMeters.getSelectedItem().toString();
                 Toast.makeText(getActivity(), valueSpinnerMetr, Toast.LENGTH_SHORT).show();
-                countCost(valueMeters, valueIncut, valueSpinnerMetr);
+                //countCost(valueMeters, valueIncut, valueSpinnerMetr);
+                calculationFormula.countCost(countOfMeters,countOfIncut, spinnerMeters, result_cost_by_meters);
             }
 
             @Override
@@ -276,7 +259,8 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 valueSpinnerSq = spinnerSquare.getSelectedItem().toString();
                 Toast.makeText(getActivity(), valueSpinnerSq, Toast.LENGTH_SHORT).show();
-                countCost(valueLength, valueWidth, valueNumList, valueSpinnerSq);
+                //countCost(valueLength, valueWidth, valueNumList, valueSpinnerSq);
+                calculationFormula.countCost(mNumLength,mNumWidth,mNumLists,spinnerSquare,result_cost_by_square);
             }
 
             @Override
@@ -302,10 +286,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         Log.d(MY_LOG, "Сообщение: " + textSms);
 
         smsManager.sendTextMessage(telMoy, null, textSms, null, null);
-    }
-
-    private void requestSMSPermission () {
-        FcPermissions.requestPermissions(getActivity(),"Требуется разрешение отправить СМС", FcPermissions.REQ_PER_CODE,Manifest.permission.SEND_SMS);
     }
 
     @Override
@@ -397,7 +377,8 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             valueMeters = countOfMeters.getText().toString();
             valueIncut = countOfIncut.getText().toString();
             valueSpinnerMetr = spinnerMeters.getSelectedItem().toString();
-            countCost(valueMeters, valueIncut, valueSpinnerMetr);
+            //countCost(valueMeters, valueIncut, valueSpinnerMetr);
+            calculationFormula.countCost(countOfMeters,countOfIncut, spinnerMeters, result_cost_by_meters);
         }
 
         if (calcBySquare.getVisibility() == View.VISIBLE) {
@@ -405,14 +386,22 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             valueWidth = mNumWidth.getText().toString();
             valueNumList = mNumLists.getText().toString();
             valueSpinnerSq = spinnerSquare.getSelectedItem().toString();
-            countCost(valueLength, valueWidth, valueNumList, valueSpinnerSq);
+            //countCost(valueLength, valueWidth, valueNumList, valueSpinnerSq);
+            calculationFormula.countCost(mNumLength,mNumWidth,mNumLists,spinnerSquare,result_cost_by_square);
         }
-
+        //Toast.makeText(getActivity(), "Значение calculation_meters: "+calculation_meters, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void afterTextChanged(Editable s) {
 
+    }
+
+
+    // TODO: 25.09.2017 Работаем с разрешениями Android 6.0 и выше
+
+    private void requestSMSPermission () {
+        FcPermissions.requestPermissions(this,"Требуется разрешение отправить СМС", FcPermissions.REQ_PER_CODE,Manifest.permission.SEND_SMS);
     }
 
     @Override
@@ -423,115 +412,16 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
     @Override
     public void onPermissionsDenied(int i, List<String> list) {
-        FcPermissions.checkDeniedPermissionsNeverAskAgain(getActivity(),"Разрешение для отправки СМС нужно для...",R.string.settings,R.string.cancel,list);
         Toast.makeText(getActivity(), "Разрешение НЕ получено!", Toast.LENGTH_SHORT).show();
-    }
-
-    // TODO: 25.09.2017 Работаем с разрешениями Android 6.0 и выше
-
-
-    /*
-    private boolean hasPermissions() {
-        int res;
-        String[] permssions = new String[]{Manifest.permission.SEND_SMS};
-
-        for (String perm : permssions) {
-            res = getActivity().checkCallingOrSelfPermission(perm);
-            // TODO: 29.08.2017 Попробовать заменить на res!= PackageManager.PERMISSION_GRANTED
-            if (!(res == PackageManager.PERMISSION_GRANTED)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void requestPerms() {
-        String[] permssions = new String[]{Manifest.permission.SEND_SMS};
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(permssions, PERMISSION_REQUEST_CODE);
-        }
+        FcPermissions.checkDeniedPermissionsNeverAskAgain(getActivity(),"Разрешение для отправки СМС нужно для...",R.string.settings,R.string.cancel,list);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        boolean allowed = true;
-        switch (requestCode) {
-            case PERMISSION_REQUEST_CODE:
-                for (int res : grantResults) {
-                    // if user granted all permissions.
-                    allowed = allowed && (res == PackageManager.PERMISSION_GRANTED);
-                }
-                break;
-            default:
-                // if user not granted permissions.
-                allowed = false;
-                break;
-        }
-
-        if (allowed) {
-            //user granted all permissions we can perform our task.
-            sendSms(textSms);
-        }else {
-            // we will give warning to user that they haven't granted permissions.
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if (shouldShowRequestPermissionRationale(Manifest.permission.SEND_SMS)){
-                    Toast.makeText(getActivity(), "Разрешение на отправку СМС не получено (denied)", Toast.LENGTH_SHORT).show();
-                }else {
-                    showNoStoragePermissionSnackbar();
-                }
-            }
-        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        FcPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
     }
 
-    private void showNoStoragePermissionSnackbar(){
 
-        Toast.makeText(getActivity(),
-                "Включите разрешение на отправку СМС", Toast.LENGTH_SHORT)
-                .show();
-        Snackbar.make(getActivity().findViewById(R.id.container), "Открыть настройки для разрешения отправки СМС", Snackbar.LENGTH_LONG)
-                .setAction("Action", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        openApplicationSettings();
-                        Toast.makeText(getActivity(),
-                                "Включите разрешение на отправку СМС-1", Toast.LENGTH_SHORT)
-                                .show();
-                    }
-                }).show();
-    }
-
-    private void openApplicationSettings(){
-        Intent appSettingsIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.parse("package:" + getActivity().getPackageName()));
-        startActivityForResult(appSettingsIntent, PERMISSION_REQUEST_CODE);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PERMISSION_REQUEST_CODE){
-            sendSms(textSms);
-            return;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void requestPermissionWithRationale(){
-        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),Manifest.permission.SEND_SMS)){
-            final String message = "Storage permission is needed to show files count";
-            Toast.makeText(getActivity(), "ActivityCompat.shouldShowRequestPermissionRationale", Toast.LENGTH_SHORT).show();
-            Snackbar.make(getActivity().findViewById(R.id.container),message,
-                    Snackbar.LENGTH_SHORT).setAction("GRAND", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    requestPerms();
-                }
-            }).show();
-        }else {
-            requestPerms();
-        }
-    }
-    */
 
 }

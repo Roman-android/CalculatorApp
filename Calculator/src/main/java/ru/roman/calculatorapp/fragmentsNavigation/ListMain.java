@@ -33,7 +33,7 @@ public class ListMain extends Fragment {
 
     private OnLinkItemSelectedListenerMain mItemListenerMain;
 
-    private String[] mItemArray = {"Рыжик 1", "Барсик 2", "Мурзик 3",
+    private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3",
             "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
 
     private Integer[] mImageArrayMain = {R.drawable.ic_android_blue_50dp, R.drawable.ic_face_black_50dp,
