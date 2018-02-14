@@ -1,8 +1,10 @@
-package ru.roman.calculatorapp;
+package ru.roman.calculatorapp.Utils;
 
 import android.content.Context;
 
 import java.util.ArrayList;
+
+import ru.roman.calculatorapp.R;
 
 /**
  * Created by Roman on 26.12.2017.
@@ -18,7 +20,7 @@ public class RecourcesToViewPager {
 
     private int position_main, position_under;
 
-    RecourcesToViewPager(Context context, int position_main, int position_under) {
+    public RecourcesToViewPager(Context context, int position_main, int position_under) {
 
         this.position_main = position_main;
         this.position_under = position_under;
@@ -58,12 +60,12 @@ public class RecourcesToViewPager {
         kindMaterialArray.add(massivMat_3);
 
         // TODO: 07.08.2017 массивы для значений spinnerMeters
-        String[] spinnerMetr_1_1 = new String[]{"1", "1.5", "1.8"};
+        String[] spinnerMetr_1_1 = new String[]{"1", "1.2"};
         String[] spinnerMetr_1_2 = new String[]{"2", "2.5", "2"};
-        String[] spinnerMetr_1_3 = new String[]{"3", "3.5", "3.9"};
+        String[] spinnerMetr_1_3 = new String[]{"0.7", "1", "1.2", "1.5", "2"};
 
-        String[] spinnerMetr_2_1 = new String[]{"4.2", "1.7", "2.1"};
-        String[] spinnerMetr_2_2 = new String[]{"1.9", "2.2", "2.5"};
+        String[] spinnerMetr_2_1 = new String[]{"4", "6", "10", "12", "20", "22", "30"};
+        String[] spinnerMetr_2_2 = new String[]{"2", "3", "4", "5"};
 
         String[] spinnerMetr_3_1 = new String[]{"1.2", "1.7", "2.1"};
 
@@ -114,20 +116,19 @@ public class RecourcesToViewPager {
     */
 
 
-
-    int[] chooseImgArray() {
+    public int[] chooseImgArray() {
         int [][] position = kindMaterialArray.get(position_main);
 
         return position[position_under];
     }
 
-    String [] chooseSpinnerArray() {
+    public String[] chooseSpinnerArray() {
         String [][] position = spinnerMetrArray.get(position_main);
 
         return position[position_under];
     }
 
-    String [] chooseTextArray() {
+    public String[] chooseTextArray() {
         String [][] position = descTextArray.get(position_main);
 
         return position[position_under];

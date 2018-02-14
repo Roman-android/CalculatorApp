@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import ru.roman.calculatorapp.ActivityMain;
+import ru.roman.calculatorapp.MainActivity;
 import ru.roman.calculatorapp.R;
 import ru.roman.calculatorapp.adapters.ListViewAdapter;
 
@@ -22,38 +23,30 @@ import ru.roman.calculatorapp.adapters.ListViewAdapter;
 public class ListMain extends Fragment {
 
 
-    public ListMain() {
-        // Required empty public constructor
-    }
-
     private final String MY_LOG = "myListMain";
     // TODO: 15.04.2017 Объявляем переменные для View элементов
     private ListView listView_1;
     private ListViewAdapter listViewAdapter;
-
     private OnLinkItemSelectedListenerMain mItemListenerMain;
-
     private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3",
             "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
-
     private Integer[] mImageArrayMain = {R.drawable.ic_android_blue_50dp, R.drawable.ic_face_black_50dp,
             R.drawable.ic_opti1_01, R.drawable.ic_opti1_02, R.drawable.ic_opti1_03, R.drawable.ic_opti1_04,
             R.drawable.ic_opti1_05, R.drawable.ic_opti1_06, R.drawable.ic_opti1_07};
 
-    public interface OnLinkItemSelectedListenerMain {
-        void OnItemSelectedMain(int num, String selection);
+    public ListMain() {
+        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(MY_LOG,"ListMain: Сработал onCreateView");
 
-        ((ActivityMain) getActivity()).setDrawerOnIcon(true);
+        ((MainActivity) getActivity()).setDrawerOnIcon(true);
 
         View view = inflater.inflate(R.layout.fragment_list_main, container, false);
-        ((ActivityMain)getActivity()).toolbar.setTitle("ToolbarMy");
+        ((MainActivity) getActivity()).toolbar.setTitle("ToolbarMy");
 
         listView_1 = (ListView) view.findViewById(R.id.mainListView);
 
@@ -63,8 +56,14 @@ public class ListMain extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String selection = listViewAdapter.getString(position);
-                mItemListenerMain.OnItemSelectedMain(position, selection);
+                // TODO: 08.02.2018 открываем список по мере заполнения данными, когда все готово условие убрать!
+                if (position <= 1) {
+                    String selection = listViewAdapter.getString(position);
+                    mItemListenerMain.OnItemSelectedMain(position, selection);
+                } else {
+                    Toast.makeText(getActivity(), "Данные еще не заполнены", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
@@ -97,6 +96,10 @@ public class ListMain extends Fragment {
         super.onDetach();
 
         mItemListenerMain = null;
+    }
+
+    public interface OnLinkItemSelectedListenerMain {
+        void OnItemSelectedMain(int num, String selection);
     }
 
 }

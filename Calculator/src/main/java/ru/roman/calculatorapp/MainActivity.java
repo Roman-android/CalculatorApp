@@ -1,5 +1,6 @@
 package ru.roman.calculatorapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -8,40 +9,37 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import ru.roman.calculatorapp.fragmentsNavigation.AboutFragment;
 import ru.roman.calculatorapp.fragmentsNavigation.LevelFragment_1;
 import ru.roman.calculatorapp.fragmentsNavigation.ListMain;
 
-public class ActivityMain extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ListMain.OnLinkItemSelectedListenerMain,LevelFragment_1.OnLinkItemSelectedListenerUnder {
 
+    private final String MY_LOG = "myFilterMain";
     public ActionBarDrawerToggle toggle;
     public DrawerLayout drawer;
     public Toolbar toolbar;
+    public FloatingActionButton fab;
     ListMain listMain;
     LevelFragment_1 levelFragment_1;
     ViewPagerWorkFragment viewPagerWorkFragment;
-
     FragmentManager fragmentManager;
     AboutFragment aboutFragment;
-
     int numListMain;
-
-    public FloatingActionButton fab;
-
-    private final String MY_LOG = "myFilterMain";
-
-    TextView version,error;
+    ShareActionProvider shareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +57,6 @@ public class ActivityMain extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                //setContentView(R.layout.test_layout);
             }
         });
 
@@ -72,15 +69,6 @@ public class ActivityMain extends AppCompatActivity
 
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.container, listMain, null).commit();
-
-        // TODO: 08.08.2017 Округление
-        //String test = String.valueOf(Math.pow(10,0));
-        //String test = String.valueOf(Math.round(1124.4));
-        //BigDecimal bigDecimal = new BigDecimal(121.1154);
-        //String test = String.valueOf(bigDecimal.setScale(2, RoundingMode.HALF_UP));
-        //String test = String.valueOf(bigDecimal.round(new MathContext(5, RoundingMode.HALF_UP)));
-        //Log.d(MY_LOG, test);
-
     }
 
     public void setDrawerOnIcon(boolean isEnabled) {
@@ -94,7 +82,7 @@ public class ActivityMain extends AppCompatActivity
             }
             toggle.setDrawerIndicatorEnabled(true);
         } else {
-            toggle = new ActionBarDrawerToggle(ActivityMain.this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            toggle = new ActionBarDrawerToggle(MainActivity.this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setHomeButtonEnabled(true);
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -117,11 +105,26 @@ public class ActivityMain extends AppCompatActivity
     }
 
     // TODO: 09.05.2017 Показ меню с 3 точками
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_settings);
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+        //shareActionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
+        shareActionProvider.setShareIntent(createShareIntent());
+
         return true;
-    }*/
+    }
+
+    private Intent createShareIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://e1.ru");
+        Intent choseIntent = Intent.createChooser(shareIntent, "Заголовок");
+        //return shareIntent;
+        return choseIntent;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

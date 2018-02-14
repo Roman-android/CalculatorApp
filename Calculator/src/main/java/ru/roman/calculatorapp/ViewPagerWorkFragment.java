@@ -9,7 +9,6 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -27,9 +26,11 @@ import android.widget.Toast;
 import com.lypeer.fcpermission.FcPermissions;
 import com.lypeer.fcpermission.impl.FcPermissionsCallbacks;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import ru.roman.calculatorapp.Utils.CalculationFormula;
+import ru.roman.calculatorapp.Utils.RecourcesToViewPager;
+import ru.roman.calculatorapp.Utils.SendSMS;
 import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
 
 
@@ -39,43 +40,30 @@ import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
 public class ViewPagerWorkFragment extends Fragment implements Button.OnClickListener, TextWatcher,FcPermissionsCallbacks {
 
     private final String MY_LOG = "myFilterPageWork";
-    private View bottomSheet;
-    private TextView bottomSheetPick;
     BottomSheetBehavior behavior;
-
-    private FloatingActionButton fab;
-    private String textSms;
-
-    private Button btnCalcMeters, btnCalcSquare;
-    private View calcByMeters, calcBySquare;
-
-    // TODO: 22.07.2017 объявляем переменные для calc_by_meters и calc_by_square
-    private EditText countOfMeters, countOfIncut;
-    private EditText mNumLength, mNumWidth, mNumLists;
-    private TextView result_cost_by_meters, result_cost_by_square, factor;
-    private String valueMeters, valueIncut, valueSpinnerMetr;
     String valueLength, valueWidth, valueNumList, valueSpinnerSq;
     Spinner spinnerMeters, spinnerSquare;
-    String roundedResultMetrs, roundedResultSquare;
-
-    double k;
-
-    // TODO: 15.08.2017 Получаем номера выбранных позиций в ListMain и LevelFragment_1 и текст выбранной позиции в LevelFragment_1
-    private int position_from_listMain;
-    private int position_from_levelFragment_1;
-    private String selection;
-
     // TODO: 30.01.2018 Импорт классов
     ViewPagerAdapter viewPagerAdapter;
     RecourcesToViewPager recourcesToViewPager;
     CalculationFormula calculationFormula;
-
-
-
+    private View bottomSheet;
+    private TextView bottomSheetPick;
+    private FloatingActionButton fab;
+    private String textSms;
+    private Button btnCalcMeters, btnCalcSquare;
+    private View calcByMeters, calcBySquare;
+    // TODO: 22.07.2017 объявляем переменные для calc_by_meters и calc_by_square
+    private EditText countOfMeters, countOfIncut;
+    private EditText mNumLength, mNumWidth, mNumLists;
+    private TextView result_cost_by_meters, result_cost_by_square;
+    private String valueMeters, valueIncut, valueSpinnerMetr;
+    // TODO: 15.08.2017 Получаем номера выбранных позиций в ListMain и LevelFragment_1 и текст выбранной позиции в LevelFragment_1
+    private int position_from_listMain;
+    private int position_from_levelFragment_1;
+    private String selection;
     private int[] imgShow;
     private String [] descrText;
-
-    private static final int PERMISSION_REQUEST_CODE = 123;
 
     public ViewPagerWorkFragment() {
         // Required empty public constructor
@@ -103,37 +91,14 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         recourcesToViewPager = new RecourcesToViewPager(getContext(), position_from_listMain,position_from_levelFragment_1);
         imgShow = recourcesToViewPager.chooseImgArray();
         descrText = recourcesToViewPager.chooseTextArray();
-
-
-
-
-
-        if (position_from_listMain == 0) {
-            if (position_from_levelFragment_1 == 0) {
-                k = 1;
-            }
-            if (position_from_levelFragment_1 == 1) {
-                k = 1.5;
-            }
-        }
-
-        if (position_from_listMain == 1) {
-            if (position_from_levelFragment_1 == 0) {
-                k = 2;
-            }
-            if (position_from_levelFragment_1 == 1) {
-                k = 2.5;
-            }
-        }
-
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_view_pager_work, container, false);
-        if (((ActivityMain)getActivity()) != null) {
-            ((ActivityMain)getActivity()).toolbar.setTitle(selection);
+        if (((MainActivity) getActivity()) != null) {
+            ((MainActivity) getActivity()).toolbar.setTitle(selection);
         }
 
         Log.d(MY_LOG, "ViewPagerWork: Сработал onCreateView");
@@ -207,8 +172,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
         result_cost_by_square = (TextView) view.findViewById(R.id.cost_by_square);
 
-        factor = (TextView) view.findViewById(R.id.factor);
-
         calcByMeters = view.findViewById(R.id.calcByMeters);
         calcBySquare = view.findViewById(R.id.calcBySquare);
 
@@ -244,7 +207,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 valueSpinnerMetr = spinnerMeters.getSelectedItem().toString();
                 Toast.makeText(getActivity(), valueSpinnerMetr, Toast.LENGTH_SHORT).show();
-                //countCost(valueMeters, valueIncut, valueSpinnerMetr);
                 calculationFormula.countCost(countOfMeters,countOfIncut, spinnerMeters, result_cost_by_meters);
             }
 
@@ -259,7 +221,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 valueSpinnerSq = spinnerSquare.getSelectedItem().toString();
                 Toast.makeText(getActivity(), valueSpinnerSq, Toast.LENGTH_SHORT).show();
-                //countCost(valueLength, valueWidth, valueNumList, valueSpinnerSq);
                 calculationFormula.countCost(mNumLength,mNumWidth,mNumLists,spinnerSquare,result_cost_by_square);
             }
 
@@ -269,23 +230,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             }
         });
 
-        factor.setText("Коэфициент = " + Double.toString(k));
         return view;
-    }
-
-    public void sendSms(String textSms){
-
-        final String telOleg = "+79221814534";
-        final String telMoy = "+79045458632";
-
-        SmsManager smsManager = SmsManager.getDefault();
-
-        ArrayList<String> messageArray = smsManager.divideMessage(textSms);
-        Log.d(MY_LOG, "Отправка СМС: " + messageArray.size());
-        Log.d(MY_LOG, "Длина смс: " + String.valueOf(textSms.length()));
-        Log.d(MY_LOG, "Сообщение: " + textSms);
-
-        smsManager.sendTextMessage(telMoy, null, textSms, null, null);
     }
 
     @Override
@@ -293,7 +238,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         super.onActivityCreated(savedInstanceState);
 
         if (getActivity() != null) {
-            ((ActivityMain) getActivity()).setDrawerOnIcon(false);
+            ((MainActivity) getActivity()).setDrawerOnIcon(false);
         }
     }
 
@@ -330,40 +275,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         }
     }
 
-    // TODO: 29.06.2017 метод (функция) для подсчета итоговой стоимости материала
-    private void countCost(String valueMeters, String valueIncut, String valueSpinnerMetr) {
-
-        if (countOfMeters.getText().length() > 0 && countOfIncut.length() > 0) {
-            double resultByMeters = Float.valueOf(valueMeters) * Float.valueOf(valueIncut) * Float.valueOf(valueSpinnerMetr) * k;
-            roundedResultMetrs = String.valueOf(Math.round(resultByMeters));
-
-            result_cost_by_meters.setText(roundedResultMetrs);
-            Log.d(MY_LOG, "Неокругленный resultByMeters: " + String.valueOf(resultByMeters));
-
-            //textSms = "Расчет по погонным метрам: Метры: " + valueMeters + " Врезок: " + valueIncut + " Толщина: " +  valueSpinnerMetr + " Стоимость " + roundedResult;
-        } else {
-            result_cost_by_meters.setText("Заполните все поля");
-        }
-    }
-
-    private void countCost(String valueLength, String valueWidth, String valueNumList, String svalueSpinnerSq) {
-
-        if (mNumLength.getText().length() > 0 && mNumWidth.length() > 0 && mNumLists.length() > 0) {
-            double resultBySquare = Double.valueOf(valueLength) * Double.valueOf(valueWidth) *
-                    Double.valueOf(valueNumList) * Double.valueOf(valueSpinnerSq) * k;
-
-            roundedResultSquare = String.valueOf(Math.round(resultBySquare));
-
-            result_cost_by_square.setText(roundedResultSquare);
-            Log.d(MY_LOG, "Неокругленный resultBySquare: " + String.valueOf(resultBySquare));
-
-            //textSms = "Расчет по площади: Длина листа: " + valueLength + " Ширина листа: " + valueWidth +
-            //" Количество листов: " + valueNumList + " Толщина материала: " + valueSpinnerSq + " Стоимость " + roundedResult;
-        } else {
-            result_cost_by_square.setText("Заполните все поля");
-        }
-    }
-
     // TODO: 29.06.2017  метод (функция) для подсчета стоимости при вводе цифр в полях
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -377,7 +288,6 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             valueMeters = countOfMeters.getText().toString();
             valueIncut = countOfIncut.getText().toString();
             valueSpinnerMetr = spinnerMeters.getSelectedItem().toString();
-            //countCost(valueMeters, valueIncut, valueSpinnerMetr);
             calculationFormula.countCost(countOfMeters,countOfIncut, spinnerMeters, result_cost_by_meters);
         }
 
@@ -386,17 +296,14 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
             valueWidth = mNumWidth.getText().toString();
             valueNumList = mNumLists.getText().toString();
             valueSpinnerSq = spinnerSquare.getSelectedItem().toString();
-            //countCost(valueLength, valueWidth, valueNumList, valueSpinnerSq);
             calculationFormula.countCost(mNumLength,mNumWidth,mNumLists,spinnerSquare,result_cost_by_square);
         }
-        //Toast.makeText(getActivity(), "Значение calculation_meters: "+calculation_meters, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void afterTextChanged(Editable s) {
 
     }
-
 
     // TODO: 25.09.2017 Работаем с разрешениями Android 6.0 и выше
 
@@ -406,8 +313,8 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
     @Override
     public void onPermissionsGranted(int i, List<String> list) {
+        new SendSMS(textSms);
         Toast.makeText(getActivity(), "Разрешение получено!", Toast.LENGTH_SHORT).show();
-        sendSms(textSms);
     }
 
     @Override
@@ -421,7 +328,5 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         FcPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
     }
-
-
 
 }
