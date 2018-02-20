@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -34,28 +35,10 @@ public class AboutFragment extends Fragment {
 
         if (getActivity() != null) {
             ((MainActivity) getActivity()).setDrawerOnIcon(false);
+            ((MainActivity) getActivity()).toolbar.setTitle(R.string.about);
         }
 
         return view;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                startActivity(new Intent(getContext(), MainActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        Toast.makeText(getActivity(), "onAttach", Toast.LENGTH_SHORT).show();
-
-    }
 }

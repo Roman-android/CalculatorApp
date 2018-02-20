@@ -28,9 +28,9 @@ import com.lypeer.fcpermission.impl.FcPermissionsCallbacks;
 
 import java.util.List;
 
-import ru.roman.calculatorapp.Utils.CalculationFormula;
-import ru.roman.calculatorapp.Utils.RecourcesToViewPager;
-import ru.roman.calculatorapp.Utils.SendSMS;
+import ru.roman.calculatorapp.utils.CalculationFormula;
+import ru.roman.calculatorapp.utils.RecourcesToViewPager;
+import ru.roman.calculatorapp.utils.SendSMS;
 import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
 
 
@@ -58,7 +58,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
     private EditText mNumLength, mNumWidth, mNumLists;
     private TextView result_cost_by_meters, result_cost_by_square;
     private String valueMeters, valueIncut, valueSpinnerMetr;
-    // TODO: 15.08.2017 Получаем номера выбранных позиций в ListMain и LevelFragment_1 и текст выбранной позиции в LevelFragment_1
+    // TODO: 15.08.2017 Получаем номера выбранных позиций в ListMain и ListLevel_1 и текст выбранной позиции в ListLevel_1
     private int position_from_listMain;
     private int position_from_levelFragment_1;
     private String selection;

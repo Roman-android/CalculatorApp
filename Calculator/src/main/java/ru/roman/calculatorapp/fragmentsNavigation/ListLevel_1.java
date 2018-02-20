@@ -20,7 +20,7 @@ import ru.roman.calculatorapp.adapters.ListViewAdapter;
  * A simple {@link Fragment} subclass.
  */
 
-public class LevelFragment_1 extends Fragment {
+public class ListLevel_1 extends Fragment {
 
     private final String MY_LOG = "levelFragment1";
     OnLinkItemSelectedListenerUnder mItemListenerUnder;
@@ -53,17 +53,17 @@ public class LevelFragment_1 extends Fragment {
     String[][] allMaterials = {mItemArray_1, mItemArray_2, mItemArray_3, mItemArray_4, mItemArray_5,
             mItemArray_6, mItemArray_7, mItemArray_8, mItemArray_9,};
 
-    public LevelFragment_1() {
+    public ListLevel_1() {
         // Required empty public constructor
     }
 
-    public static LevelFragment_1 newInstance(int position, String selection) {
-        LevelFragment_1 levelFragment_1 = new LevelFragment_1();
+    public static ListLevel_1 newInstance(int position, String selection) {
+        ListLevel_1 listLevel_1 = new ListLevel_1();
         Bundle args = new Bundle();
         args.putInt("position", position);
         args.putString("selection", selection);
-        levelFragment_1.setArguments(args);
-        return levelFragment_1;
+        listLevel_1.setArguments(args);
+        return listLevel_1;
     }
 
     @Override
@@ -82,8 +82,11 @@ public class LevelFragment_1 extends Fragment {
         Log.d(MY_LOG, "selection: "+selection);
 
         View view = inflater.inflate(R.layout.fragment_list_main, container, false);
-        ((MainActivity) getActivity()).toolbar.setTitle(selection);
-        ((MainActivity) getActivity()).fab.setVisibility(View.VISIBLE);
+        if (getActivity() != null) {
+            ((MainActivity) getActivity()).toolbar.setTitle(selection);
+            ((MainActivity) getActivity()).fab.setVisibility(View.GONE);
+        }
+
 
         listView_1 = (ListView) view.findViewById(R.id.mainListView);
 
@@ -105,33 +108,21 @@ public class LevelFragment_1 extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         listView_1.setAdapter(listViewAdapter_1);
-        ((MainActivity) getActivity()).setDrawerOnIcon(false);
+        if (getActivity() != null) {
+            ((MainActivity) getActivity()).setDrawerOnIcon(false);
+        }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (context instanceof LevelFragment_1.OnLinkItemSelectedListenerUnder) {
-            mItemListenerUnder = (LevelFragment_1.OnLinkItemSelectedListenerUnder) context;
+        if (context instanceof ListLevel_1.OnLinkItemSelectedListenerUnder) {
+            mItemListenerUnder = (ListLevel_1.OnLinkItemSelectedListenerUnder) context;
         } else {
             throw new ClassCastException(context.toString()
                     + " must implement MyListFragment.OnItemSelectedListener");
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        //((MainActivity) getActivity()).setDrawerOnIcon(true);
-        Log.d(MY_LOG, "onDestroyView");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        //((MainActivity)getActivity()).setDrawerOnIcon(true);
-        Log.d(MY_LOG, "onDestroy");
     }
 
     @Override

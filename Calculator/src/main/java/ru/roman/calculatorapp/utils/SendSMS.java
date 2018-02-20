@@ -1,4 +1,4 @@
-package ru.roman.calculatorapp.Utils;
+package ru.roman.calculatorapp.utils;
 
 import android.telephony.SmsManager;
 import android.util.Log;

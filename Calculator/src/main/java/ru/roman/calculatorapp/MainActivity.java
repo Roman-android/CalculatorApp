@@ -8,6 +8,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ActionProvider;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,14 +20,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import ru.roman.calculatorapp.fragmentsNavigation.AboutFragment;
-import ru.roman.calculatorapp.fragmentsNavigation.LevelFragment_1;
+import ru.roman.calculatorapp.fragmentsNavigation.ListLevel_1;
 import ru.roman.calculatorapp.fragmentsNavigation.ListMain;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        ListMain.OnLinkItemSelectedListenerMain,LevelFragment_1.OnLinkItemSelectedListenerUnder {
+        ListMain.OnLinkItemSelectedListenerMain,ListLevel_1.OnLinkItemSelectedListenerUnder {
 
     private final String MY_LOG = "myFilterMain";
     public ActionBarDrawerToggle toggle;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     public Toolbar toolbar;
     public FloatingActionButton fab;
     ListMain listMain;
-    LevelFragment_1 levelFragment_1;
+    ListLevel_1 listLevel_1;
     ViewPagerWorkFragment viewPagerWorkFragment;
     FragmentManager fragmentManager;
     AboutFragment aboutFragment;
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        Log.d(MY_LOG,"OnCreate");
         // TODO: 15.04.2017 Подключаем фрагменты
         listMain = new ListMain();
         aboutFragment = new AboutFragment();
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
             }
             toggle.setDrawerIndicatorEnabled(true);
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         } else {
             toggle = new ActionBarDrawerToggle(MainActivity.this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
             if (getSupportActionBar() != null) {
@@ -89,6 +93,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
             }
             toggle.setDrawerIndicatorEnabled(false);
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
         toggle.syncState();
     }
@@ -107,11 +112,13 @@ public class MainActivity extends AppCompatActivity
     // TODO: 09.05.2017 Показ меню с 3 точками
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main,menu);
 
-        MenuItem menuItem = menu.findItem(R.id.action_settings);
+        MenuItem menuItem = menu.findItem(R.id.share);
         shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+
         //shareActionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
+
         shareActionProvider.setShareIntent(createShareIntent());
 
         return true;
@@ -130,7 +137,12 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             fragmentManager.popBackStack();
-            return false;
+            return true;
+        }
+        if (item.getItemId() == R.id.share){
+            //createShareIntent();
+            Log.d(MY_LOG,"Нажата кнопка поделиться");
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -143,14 +155,14 @@ public class MainActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.materials) {
             if (!listMain.isAdded()) {
                 //setDrawerOnIcon(false);
                 ftrans.replace(R.id.container, listMain, null).addToBackStack(null);
                 Log.d(MY_LOG, "isNoAdded");
             }
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.about) {
             if (!aboutFragment.isAdded()){
                 //setDrawerOnIcon(false);
                 ftrans.replace(R.id.container, aboutFragment, null).addToBackStack(null);
@@ -159,11 +171,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }ftrans.commit();
+        } ftrans.commit();
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -172,14 +180,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void OnItemSelectedMain(int num, String selection) {
         numListMain = num;
-        levelFragment_1 = LevelFragment_1.newInstance(num, selection);
-        fragmentManager.beginTransaction().replace(R.id.container, levelFragment_1, null).addToBackStack(null).commit();
+        listLevel_1 = ListLevel_1.newInstance(num, selection);
+        fragmentManager.beginTransaction().replace(R.id.container, listLevel_1, null).addToBackStack(null).commit();
     }
 
     @Override
     public void onItemSelectedUnder(int itemPosition,String selection) {
         viewPagerWorkFragment = ViewPagerWorkFragment.newInstance(numListMain,itemPosition,selection);
         fragmentManager.beginTransaction().replace(R.id.container,viewPagerWorkFragment,null).addToBackStack(null).commit();
-        fab.setVisibility(View.GONE);
     }
 }

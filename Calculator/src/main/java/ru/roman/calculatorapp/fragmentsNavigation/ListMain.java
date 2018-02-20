@@ -3,10 +3,12 @@ package ru.roman.calculatorapp.fragmentsNavigation;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -28,8 +30,7 @@ public class ListMain extends Fragment {
     private ListView listView_1;
     private ListViewAdapter listViewAdapter;
     private OnLinkItemSelectedListenerMain mItemListenerMain;
-    private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3",
-            "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
+    private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3", "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
     private Integer[] mImageArrayMain = {R.drawable.ic_android_blue_50dp, R.drawable.ic_face_black_50dp,
             R.drawable.ic_opti1_01, R.drawable.ic_opti1_02, R.drawable.ic_opti1_03, R.drawable.ic_opti1_04,
             R.drawable.ic_opti1_05, R.drawable.ic_opti1_06, R.drawable.ic_opti1_07};
@@ -39,14 +40,15 @@ public class ListMain extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(MY_LOG,"ListMain: Сработал onCreateView");
 
         ((MainActivity) getActivity()).setDrawerOnIcon(true);
 
         View view = inflater.inflate(R.layout.fragment_list_main, container, false);
-        ((MainActivity) getActivity()).toolbar.setTitle("ToolbarMy");
+        ((MainActivity) getActivity()).toolbar.setTitle(R.string.app_name);
+        ((MainActivity)getActivity()).fab.setVisibility(View.GONE);
 
         listView_1 = (ListView) view.findViewById(R.id.mainListView);
 
@@ -63,8 +65,6 @@ public class ListMain extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Данные еще не заполнены", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 
