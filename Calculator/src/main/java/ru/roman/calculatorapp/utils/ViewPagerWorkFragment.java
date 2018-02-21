@@ -1,4 +1,4 @@
-package ru.roman.calculatorapp;
+package ru.roman.calculatorapp.utils;
 
 
 import android.Manifest;
@@ -28,9 +28,8 @@ import com.lypeer.fcpermission.impl.FcPermissionsCallbacks;
 
 import java.util.List;
 
-import ru.roman.calculatorapp.utils.CalculationFormula;
-import ru.roman.calculatorapp.utils.RecourcesToViewPager;
-import ru.roman.calculatorapp.utils.SendSMS;
+import ru.roman.calculatorapp.MainActivity;
+import ru.roman.calculatorapp.R;
 import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
 
 

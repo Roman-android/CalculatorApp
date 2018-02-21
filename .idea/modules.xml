@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ActionSendProvider/ActionSendProvider.iml" filepath="$PROJECT_DIR$/ActionSendProvider/ActionSendProvider.iml" />
       <module fileurl="file://$PROJECT_DIR$/Calculator/Calculator.iml" filepath="$PROJECT_DIR$/Calculator/Calculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/CalculatorApp.iml" filepath="$PROJECT_DIR$/CalculatorApp.iml" />
     </modules>

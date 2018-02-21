@@ -8,9 +8,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ActionProvider;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,11 +18,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import ru.roman.calculatorapp.fragmentsNavigation.AboutFragment;
 import ru.roman.calculatorapp.fragmentsNavigation.ListLevel_1;
 import ru.roman.calculatorapp.fragmentsNavigation.ListMain;
+import ru.roman.calculatorapp.utils.ViewPagerWorkFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -113,24 +111,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);
-
-        MenuItem menuItem = menu.findItem(R.id.share);
-        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-
-        //shareActionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
-
-        shareActionProvider.setShareIntent(createShareIntent());
-
         return true;
-    }
-
-    private Intent createShareIntent() {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://e1.ru");
-        Intent choseIntent = Intent.createChooser(shareIntent, "Заголовок");
-        //return shareIntent;
-        return choseIntent;
     }
 
     @Override
@@ -140,11 +121,18 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         if (item.getItemId() == R.id.share){
-            //createShareIntent();
-            Log.d(MY_LOG,"Нажата кнопка поделиться");
+            createShareIntent();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void createShareIntent() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, "Поделиться с помощью:"));
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
