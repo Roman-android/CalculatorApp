@@ -30,24 +30,24 @@ public class RecourcesToViewPager {
            //1 элемент подсписка
         int[] materials_1_1 = new int[]{R.drawable.img_1_1_1,R.drawable.img_1_1_2};
         //1 элемент главного списка
-           //2 элемент подсписка
+        //item_2 элемент подсписка
         int[] materials_1_2 = new int[]{R.drawable.img_1_2_1,R.drawable.img_1_2_2};
-        //3 элемент подсписка
-           //3 элемент главного списка
-        int[] materials_1_3 = new int[]{R.drawable.img_1_3_1,R.drawable.img_1_3_2};
+        //item_3 элемент подсписка
+        //item_3 элемент главного списка
+        int[] materials_1_3 = new int[]{R.drawable.img_1_3_1, R.drawable.img_1_3_2, R.drawable.img_1_3_3};
 
-        //2 элемент главного списка
+        //item_2 элемент главного списка
            //1 элемент подсписка
         int[] materials_1d = new int[]{R.drawable.ic_essential_regular_31_document_copy, R.drawable.ic_essential_regular_33_lock_open};
-        //2 элемент главного списка
-           //2 элемент подсписка
+        //item_2 элемент главного списка
+        //item_2 элемент подсписка
         int[] materials_2d = new int[]{R.drawable.ic_essential_regular_44_phone, R.drawable.ic_essential_regular_45_user};
 
-        //3 элемент главного списка
+        //item_3 элемент главного списка
            //1 элемент главного списка
         int[] materials_3d = new int[]{R.drawable.ic_essential_regular_49_magnifier};
-        //3 элемент главного списка
-           //2 элемент главного списка
+        //item_3 элемент главного списка
+        //item_2 элемент главного списка
         /*int[] materials_4d = new int[]{R.drawable.ic_essential_regular_52_photo, R.drawable.ic_essential_regular_54_desktop,
                 R.drawable.ic_essential_regular_55_attachment, R.drawable.ic_essential_regular_57_globe};*/
 
@@ -60,14 +60,14 @@ public class RecourcesToViewPager {
         kindMaterialArray.add(massivMat_3);
 
         // TODO: 07.08.2017 массивы для значений spinnerMeters
-        String[] spinnerMetr_1_1 = new String[]{"1", "1.2"};
-        String[] spinnerMetr_1_2 = new String[]{"2", "2.5", "2"};
-        String[] spinnerMetr_1_3 = new String[]{"0.7", "1", "1.2", "1.5", "2"};
+        String[] spinnerMetr_1_1 = new String[]{"1", "1.item_2"};
+        String[] spinnerMetr_1_2 = new String[]{"item_2", "item_2.item_5", "item_2"};
+        String[] spinnerMetr_1_3 = new String[]{"0.item_7", "1", "1.item_2", "1.item_5", "item_2"};
 
-        String[] spinnerMetr_2_1 = new String[]{"4", "6", "10", "12", "20", "22", "30"};
-        String[] spinnerMetr_2_2 = new String[]{"2", "3", "4", "5"};
+        String[] spinnerMetr_2_1 = new String[]{"item_4", "item_6", "10", "12", "20", "22", "30"};
+        String[] spinnerMetr_2_2 = new String[]{"item_2", "item_3", "item_4", "item_5"};
 
-        String[] spinnerMetr_3_1 = new String[]{"1.2", "1.7", "2.1"};
+        String[] spinnerMetr_3_1 = new String[]{"1.item_2", "1.item_7", "item_2.1"};
 
         String[][] massivSpinnerMetr_1 = new String[][]{spinnerMetr_1_1, spinnerMetr_1_2,spinnerMetr_1_3};
         String[][] massivSpinnerMetr_2 = new String[][]{spinnerMetr_2_1, spinnerMetr_2_2};

@@ -12,14 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
+        android:padding="10dp"
         app:srcCompat="@drawable/ic_android_blue_50dp" />
 
     <TextView
         android:id="@+id/textItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:paddingLeft="20dp" />
+        android:gravity="start"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/colorPrimary" />
 
 
 </LinearLayout>

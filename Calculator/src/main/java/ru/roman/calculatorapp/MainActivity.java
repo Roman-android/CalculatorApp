@@ -22,7 +22,6 @@ import android.view.View;
 import ru.roman.calculatorapp.fragmentsNavigation.AboutFragment;
 import ru.roman.calculatorapp.fragmentsNavigation.ListLevel_1;
 import ru.roman.calculatorapp.fragmentsNavigation.ListMain;
-import ru.roman.calculatorapp.utils.ViewPagerWorkFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    // TODO: 09.05.2017 Показ меню с 3 точками
+    // TODO: 09.05.2017 Показ меню с item_3 точками
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);

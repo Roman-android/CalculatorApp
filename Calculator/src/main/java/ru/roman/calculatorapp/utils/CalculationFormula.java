@@ -19,7 +19,7 @@ public class CalculationFormula {
     int KPM_1_2 = 60;
     int KPM_1_3 = 55;
     int KPM_2_1 = 6;
-    int KPM_2_2 = 18;//17.5;
+    int KPM_2_2 = 18;//17.item_5;
     int KP_1_1 = 9900;
     int KP_1_2 = 11900;
     int KP_1_3 = 4900;

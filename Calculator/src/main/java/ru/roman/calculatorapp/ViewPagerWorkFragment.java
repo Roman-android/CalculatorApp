@@ -1,4 +1,4 @@
-package ru.roman.calculatorapp.utils;
+package ru.roman.calculatorapp;
 
 
 import android.Manifest;
@@ -28,9 +28,10 @@ import com.lypeer.fcpermission.impl.FcPermissionsCallbacks;
 
 import java.util.List;
 
-import ru.roman.calculatorapp.MainActivity;
-import ru.roman.calculatorapp.R;
 import ru.roman.calculatorapp.adapters.ViewPagerAdapter;
+import ru.roman.calculatorapp.utils.CalculationFormula;
+import ru.roman.calculatorapp.utils.RecourcesToViewPager;
+import ru.roman.calculatorapp.utils.SendSMS;
 
 
 /**
@@ -304,7 +305,7 @@ public class ViewPagerWorkFragment extends Fragment implements Button.OnClickLis
 
     }
 
-    // TODO: 25.09.2017 Работаем с разрешениями Android 6.0 и выше
+    // TODO: 25.09.2017 Работаем с разрешениями Android item_6.0 и выше
 
     private void requestSMSPermission () {
         FcPermissions.requestPermissions(this,"Требуется разрешение отправить СМС", FcPermissions.REQ_PER_CODE,Manifest.permission.SEND_SMS);
