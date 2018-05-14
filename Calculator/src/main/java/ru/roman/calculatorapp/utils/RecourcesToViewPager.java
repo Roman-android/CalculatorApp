@@ -28,7 +28,7 @@ public class RecourcesToViewPager {
         // TODO: 07.08.2017 массивы для картинок ViewPager
         //1 элемент главного списка
            //1 элемент подсписка
-        int[] materials_1_1 = new int[]{R.drawable.img_1_1_1,R.drawable.img_1_1_2};
+        int[] materials_1_1 = new int[]{R.drawable.ic_harley_stencil, R.drawable.img_1_1_2};
         //1 элемент главного списка
         //item_2 элемент подсписка
         int[] materials_1_2 = new int[]{R.drawable.img_1_2_1,R.drawable.img_1_2_2};
