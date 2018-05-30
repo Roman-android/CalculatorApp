@@ -36,24 +36,16 @@ public class ListLevel_1 extends Fragment {
     private Integer[][] allArrayItems = {mItemArrayLevel_1, mItemArrayLevel_2};
 
 
-    private String[] mItemArray_1 = {"Трафареты из алюминия 1-1", "Трафареты из магнитоалюминия 1-item_2", "Трафареты из магнитопластика 1-item_3",
-            "Трафареты из нержавейки 1-item_4", "Трафареты из оцинковки 1-item_5", "Трафареты из пластика ПЭТ 1-item_6", "Трафареты из пленки ORACAL 1-item_7"};
-    private String[] mItemArray_2 = {"Буквы деревянные item_2-1", "Буквы из композита item_2-item_2", "Буквы из оргстекла item_2-item_3",
-            "Буквы из ПВХ item_2-item_4", "Буквы из ПЕНОПЛАСТА item_2-item_5"};
-    private String[] mItemArray_3 = {"Рыжик item_3-1", "Барсик item_3-item_2", "Мурзик item_3-item_3",
-            "Мурка item_3-item_4", "Васька item_3-item_5", "Томасина item_3-item_6", "Кристина item_3-item_7", "Пушок item_3-item_8", "Дымка item_3-item_9"};
-    private String[] mItemArray_4 = {"Рыжик item_4-1", "Барсик item_4-item_2", "Мурзик item_4-item_3",
-            "Мурка item_4-item_4", "Васька item_4-item_5", "Томасина item_4-item_6", "Кристина item_4-item_7", "Пушок item_4-item_8", "Дымка item_4-item_9"};
-    private String[] mItemArray_5 = {"Рыжик item_5-1", "Барсик item_5-item_2", "Мурзик item_5-item_3",
-            "Мурка item_5-item_4", "Васька item_5-item_5", "Томасина item_5-item_6", "Кристина item_5-item_7", "Пушок item_5-item_8", "Дымка item_5-item_9"};
-    private String[] mItemArray_6 = {"Рыжик item_6-1", "Барсик item_6-item_2", "Мурзик item_6-item_3",
-            "Мурка item_6-item_4", "Васька item_6-item_5", "Томасина item_6-item_6", "Кристина item_6-item_7", "Пушок item_6-item_8", "Дымка item_6-item_9"};
-    private String[] mItemArray_7 = {"Рыжик item_7-1", "Барсик item_7-item_2", "Мурзик item_7-item_3",
-            "Мурка item_7-item_4", "Васька item_7-item_5", "Томасина item_7-item_6", "Кристина item_7-item_7", "Пушок item_7-item_8", "Дымка item_7-item_9"};
-    private String[] mItemArray_8 = {"Рыжик item_8-1", "Барсик item_8-item_2", "Мурзик item_8-item_3",
-            "Мурка item_8-item_4", "Васька item_8-item_5", "Томасина item_8-item_6", "Кристина item_8-item_7", "Пушок item_8-item_8", "Дымка item_8-item_9"};
-    private String[] mItemArray_9 = {"Рыжик item_9-1", "Барсик item_9-item_2", "Мурзик item_9-item_3",
-            "Мурка item_9-item_4", "Васька item_9-item_5", "Томасина item_9-item_6", "Кристина item_9-item_7", "Пушок item_9-item_8", "Дымка item_9-item_9"};
+    private String[] mItemArray_1 = {"Трафареты из алюминия 1-1", "Трафареты из магнитоалюминия 1-2", "Трафареты из магнитопластика 1-3",
+            "Трафареты из нержавейки 1-4", "Трафареты из оцинковки 1-5", "Трафареты из пластика ПЭТ 1-6", "Трафареты из пленки ORACAL 1-7"};
+    private String[] mItemArray_2 = {"Буквы деревянные 2-1", "Буквы из композита 2-2", "Буквы из оргстекла 2-3", "Буквы из ПВХ 2-4", "Буквы из ПЕНОПЛАСТА 2-5"};
+    private String[] mItemArray_3 = {"Рыжик 3-1", "Барсик 3-2", "Мурзик 3-3", "Мурка 3-4", "Васька 3-5", "Томасина 3-6", "Кристина 3-7", "Пушок 3-8", "Дымка 3-9"};
+    private String[] mItemArray_4 = {"Рыжик 4-1", "Барсик 4-2", "Мурзик 4-3", "Мурка 4-4", "Васька 4-5", "Томасина 4-6", "Кристина 4-7", "Пушок 4-8", "Дымка 4-9"};
+    private String[] mItemArray_5 = {"Рыжик 5-1", "Барсик 5-2", "Мурзик 5-3", "Мурка 5-4", "Васька 5-5", "Томасина 5-6", "Кристина 5-7", "Пушок 5-8", "Дымка 5-9"};
+    private String[] mItemArray_6 = {"Рыжик 6-1", "Барсик 6-2", "Мурзик 6-3", "Мурка 6-4", "Васька 6-5", "Томасина 6-6", "Кристина 6-7", "Пушок 6-8", "Дымка 6-9"};
+    private String[] mItemArray_7 = {"Рыжик 7-1", "Барсик 7-2", "Мурзик 7-3", "Мурка 7-4", "Васька 7-5", "Томасина 7-6", "Кристина 7-7", "Пушок 7-8", "Дымка 7-9"};
+    private String[] mItemArray_8 = {"Рыжик 8-1", "Барсик 8-2", "Мурзик 8-3", "Мурка 8-4", "Васька 8-5", "Томасина 8-6", "Кристина 8-7", "Пушок 8-8", "Дымка 8-9"};
+    private String[] mItemArray_9 = {"Рыжик 9-1", "Барсик 9-2", "Мурзик 9-3", "Мурка 9-4", "Васька 9-5", "Томасина 9-6", "Кристина 9-7", "Пушок 9-8", "Дымка 9-9"};
     String[][] allMaterials = {mItemArray_1, mItemArray_2, mItemArray_3, mItemArray_4, mItemArray_5,
             mItemArray_6, mItemArray_7, mItemArray_8, mItemArray_9,};
 
@@ -94,7 +86,7 @@ public class ListLevel_1 extends Fragment {
 
         listView_1 = (ListView) view.findViewById(R.id.mainListView);
 
-        listViewAdapter_1 = new ListViewAdapter(getActivity(), allMaterials[position], allArrayItems[position]);
+        //listViewAdapter_1 = new ListViewAdapter(getActivity(), allArrayItems[position], allMaterials[position]);
 
         listView_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

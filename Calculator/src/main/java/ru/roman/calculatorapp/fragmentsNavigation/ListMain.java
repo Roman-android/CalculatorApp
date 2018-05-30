@@ -14,9 +14,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import ru.roman.calculatorapp.MainActivity;
 import ru.roman.calculatorapp.R;
 import ru.roman.calculatorapp.adapters.ListViewAdapter;
+import ru.roman.calculatorapp.utils.NumbersToListViews;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,11 +32,15 @@ public class ListMain extends Fragment {
     private ListView listView_1;
     private ListViewAdapter listViewAdapter;
     private OnLinkItemSelectedListenerMain mItemListenerMain;
-    private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3", "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
+
     /*private Integer[] mImageArrayMain = {R.drawable.ic_android_blue_50dp, R.drawable.ic_face_black_50dp, R.drawable.ic_opti1_01, R.drawable.ic_opti1_02,
             R.drawable.ic_opti1_03, R.drawable.ic_opti1_04, R.drawable.ic_opti1_05, R.drawable.ic_opti1_06, R.drawable.ic_opti1_07};*/
     private Integer[] mImageArrayMain = {R.drawable.item_1, R.drawable.item_2, R.drawable.item_3, R.drawable.item_4, R.drawable.item_5, R.drawable.item_6, R.drawable.item_7,
             R.drawable.item_8, R.drawable.item_9};
+    NumbersToListViews numToList;
+    private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3", "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
+    private ArrayList<String> numOfItems = new ArrayList<>();
+
 
     public ListMain() {
         // Required empty public constructor
@@ -50,9 +57,10 @@ public class ListMain extends Fragment {
         ((MainActivity) getActivity()).toolbar.setTitle(R.string.app_name);
         ((MainActivity)getActivity()).fab.setVisibility(View.GONE);
 
+        numToList = new NumbersToListViews();
         listView_1 = (ListView) view.findViewById(R.id.mainListView);
 
-        listViewAdapter = new ListViewAdapter(getActivity(), mItemArray, mImageArrayMain);
+        listViewAdapter = new ListViewAdapter(getActivity(), numToList.getNumItems(mItemArray), mItemArray);
 
         listView_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

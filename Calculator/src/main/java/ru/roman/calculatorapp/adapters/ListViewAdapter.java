@@ -5,12 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import ru.roman.calculatorapp.R;
 
@@ -20,15 +17,15 @@ import ru.roman.calculatorapp.R;
 
 public class ListViewAdapter extends BaseAdapter {
 
+    private ArrayList<String> getNumberArray;
     private String[] getItemArray;
-    private Integer[] getImageArray;
 
     private LayoutInflater mLayoutInflater;
 
-    public ListViewAdapter(Context context, String[] itemArray, Integer[] imageArray) {
+    public ListViewAdapter(Context context, ArrayList<String> numberArray, String[] itemArray) {
         mLayoutInflater = LayoutInflater.from(context);
+        this.getNumberArray = numberArray;
         this.getItemArray = itemArray;
-        this.getImageArray = imageArray;
     }
 
     @Override
@@ -52,10 +49,10 @@ public class ListViewAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.list_item,null);
         }
 
-        ImageView imageView = (ImageView)convertView.findViewById(R.id.imageItem);
-        imageView.setImageResource(getImageArray[position]);
+        TextView numberView = convertView.findViewById(R.id.text_item);
+        numberView.setText(getNumberArray.get(position));
 
-        TextView textView = (TextView)convertView.findViewById(R.id.textItem);
+        TextView textView = convertView.findViewById(R.id.textItem);
         textView.setText(getItemArray[position]);
 
         return convertView;
