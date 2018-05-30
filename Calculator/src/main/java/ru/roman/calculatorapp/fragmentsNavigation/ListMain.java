@@ -12,9 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import ru.roman.calculatorapp.MainActivity;
 import ru.roman.calculatorapp.R;
@@ -39,7 +36,6 @@ public class ListMain extends Fragment {
             R.drawable.item_8, R.drawable.item_9};
     NumbersToListViews numToList;
     private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3", "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
-    private ArrayList<String> numOfItems = new ArrayList<>();
 
 
     public ListMain() {
@@ -65,14 +61,15 @@ public class ListMain extends Fragment {
         listView_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                String selection = listViewAdapter.getString(position);
+                mItemListenerMain.OnItemSelectedMain(position, selection);
                 // TODO: 08.02.2018 открываем список по мере заполнения данными, когда все готово условие убрать!
-                if (position <= 1) {
+                /*if (position <= 1) {
                     String selection = listViewAdapter.getString(position);
                     mItemListenerMain.OnItemSelectedMain(position, selection);
                 } else {
                     Toast.makeText(getActivity(), "Данные еще не заполнены", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 

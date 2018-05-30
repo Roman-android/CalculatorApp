@@ -15,6 +15,7 @@ import android.widget.ListView;
 import ru.roman.calculatorapp.MainActivity;
 import ru.roman.calculatorapp.R;
 import ru.roman.calculatorapp.adapters.ListViewAdapter;
+import ru.roman.calculatorapp.utils.NumbersToListViews;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +24,10 @@ import ru.roman.calculatorapp.adapters.ListViewAdapter;
 public class ListLevel_1 extends Fragment {
 
     private final String MY_LOG = "levelFragment1";
+
+    NumbersToListViews numToList;
     OnLinkItemSelectedListenerUnder mItemListenerUnder;
+
     private int position;
     private String selection;
     private ListView listView_1;
@@ -41,8 +45,8 @@ public class ListLevel_1 extends Fragment {
     private String[] mItemArray_2 = {"Буквы деревянные 2-1", "Буквы из композита 2-2", "Буквы из оргстекла 2-3", "Буквы из ПВХ 2-4", "Буквы из ПЕНОПЛАСТА 2-5"};
     private String[] mItemArray_3 = {"Рыжик 3-1", "Барсик 3-2", "Мурзик 3-3", "Мурка 3-4", "Васька 3-5", "Томасина 3-6", "Кристина 3-7", "Пушок 3-8", "Дымка 3-9"};
     private String[] mItemArray_4 = {"Рыжик 4-1", "Барсик 4-2", "Мурзик 4-3", "Мурка 4-4", "Васька 4-5", "Томасина 4-6", "Кристина 4-7", "Пушок 4-8", "Дымка 4-9"};
-    private String[] mItemArray_5 = {"Рыжик 5-1", "Барсик 5-2", "Мурзик 5-3", "Мурка 5-4", "Васька 5-5", "Томасина 5-6", "Кристина 5-7", "Пушок 5-8", "Дымка 5-9"};
-    private String[] mItemArray_6 = {"Рыжик 6-1", "Барсик 6-2", "Мурзик 6-3", "Мурка 6-4", "Васька 6-5", "Томасина 6-6", "Кристина 6-7", "Пушок 6-8", "Дымка 6-9"};
+    private String[] mItemArray_5 = {"Рыжик 5-1", "Барсик 5-2", "Мурзик 5-3", "Мурка 5-4", "Васька 5-5", "Томасина 5-6"};
+    private String[] mItemArray_6 = {"Рыжик 6-1", "Барсик 6-2", "Мурзик 6-3", "Мурка 6-4", "Васька 6-5"};
     private String[] mItemArray_7 = {"Рыжик 7-1", "Барсик 7-2", "Мурзик 7-3", "Мурка 7-4", "Васька 7-5", "Томасина 7-6", "Кристина 7-7", "Пушок 7-8", "Дымка 7-9"};
     private String[] mItemArray_8 = {"Рыжик 8-1", "Барсик 8-2", "Мурзик 8-3", "Мурка 8-4", "Васька 8-5", "Томасина 8-6", "Кристина 8-7", "Пушок 8-8", "Дымка 8-9"};
     private String[] mItemArray_9 = {"Рыжик 9-1", "Барсик 9-2", "Мурзик 9-3", "Мурка 9-4", "Васька 9-5", "Томасина 9-6", "Кристина 9-7", "Пушок 9-8", "Дымка 9-9"};
@@ -86,7 +90,8 @@ public class ListLevel_1 extends Fragment {
 
         listView_1 = (ListView) view.findViewById(R.id.mainListView);
 
-        //listViewAdapter_1 = new ListViewAdapter(getActivity(), allArrayItems[position], allMaterials[position]);
+        numToList = new NumbersToListViews();
+        listViewAdapter_1 = new ListViewAdapter(getActivity(), numToList.getNumItems(allMaterials[position]), allMaterials[position]);
 
         listView_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
