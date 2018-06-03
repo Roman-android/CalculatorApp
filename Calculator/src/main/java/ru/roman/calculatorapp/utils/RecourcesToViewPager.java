@@ -100,22 +100,6 @@ public class RecourcesToViewPager {
     }
 
 
-    /*
-    HashMap<String,String []> multiReturn(int position_main, int position_under){
-
-        String [][] positionSpinner = spinnerMetrArray.get(position_main);
-        String [][] positionDescText = descTextArray.get(position_main);
-
-        HashMap <String,String[]> dataToReturn = new HashMap<>();
-
-        dataToReturn.put("spinner",positionSpinner[position_under]);
-        dataToReturn.put("descText",positionDescText[position_under]);
-
-        return dataToReturn;
-    }
-    */
-
-
     public int[] chooseImgArray() {
         int [][] position = kindMaterialArray.get(position_main);
 

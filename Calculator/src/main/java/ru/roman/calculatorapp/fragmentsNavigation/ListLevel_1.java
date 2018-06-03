@@ -32,13 +32,6 @@ public class ListLevel_1 extends Fragment {
     private String selection;
     private ListView listView_1;
     private ListViewAdapter listViewAdapter_1;
-    // TODO: 19.04.2017 Для уровня 1
-    private Integer[] mItemArrayLevel_1 = {R.drawable.item_1_1, R.drawable.item_1_2, R.drawable.item_1_3, R.drawable.item_1_4,
-            R.drawable.ic_opti1_06, R.drawable.item_1_6, R.drawable.ic_opti1_04, R.drawable.ic_opti1_03, R.drawable.ic_opti1_02};
-    private Integer[] mItemArrayLevel_2 = {R.drawable.item_2_1, R.drawable.item_2_2, R.drawable.item_2_3, R.drawable.item_2_4,
-            R.drawable.item_2_5, R.drawable.item_2_6, R.drawable.ic_opti1_04, R.drawable.ic_opti1_03, R.drawable.ic_opti1_02};
-    private Integer[][] allArrayItems = {mItemArrayLevel_1, mItemArrayLevel_2};
-
 
     private String[] mItemArray_1 = {"Трафареты из алюминия 1-1", "Трафареты из магнитоалюминия 1-2", "Трафареты из магнитопластика 1-3",
             "Трафареты из нержавейки 1-4", "Трафареты из оцинковки 1-5", "Трафареты из пластика ПЭТ 1-6", "Трафареты из пленки ORACAL 1-7"};

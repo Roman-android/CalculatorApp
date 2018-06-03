@@ -30,10 +30,7 @@ public class ListMain extends Fragment {
     private ListViewAdapter listViewAdapter;
     private OnLinkItemSelectedListenerMain mItemListenerMain;
 
-    /*private Integer[] mImageArrayMain = {R.drawable.ic_android_blue_50dp, R.drawable.ic_face_black_50dp, R.drawable.ic_opti1_01, R.drawable.ic_opti1_02,
-            R.drawable.ic_opti1_03, R.drawable.ic_opti1_04, R.drawable.ic_opti1_05, R.drawable.ic_opti1_06, R.drawable.ic_opti1_07};*/
-    private Integer[] mImageArrayMain = {R.drawable.item_1, R.drawable.item_2, R.drawable.item_3, R.drawable.item_4, R.drawable.item_5, R.drawable.item_6, R.drawable.item_7,
-            R.drawable.item_8, R.drawable.item_9};
+
     NumbersToListViews numToList;
     private String[] mItemArray = {"ИЗГОТОВЛЕНИЕ ТРАФАРЕТОВ 1", "ОБЪЕМНЫЕ БУКВЫ 2", "Мурзик 3", "Мурка 4", "Васька 5", "Томасина 6", "Кристина 7", "Пушок 8", "Дымка 9"};
 
@@ -64,12 +61,6 @@ public class ListMain extends Fragment {
                 String selection = listViewAdapter.getString(position);
                 mItemListenerMain.OnItemSelectedMain(position, selection);
                 // TODO: 08.02.2018 открываем список по мере заполнения данными, когда все готово условие убрать!
-                /*if (position <= 1) {
-                    String selection = listViewAdapter.getString(position);
-                    mItemListenerMain.OnItemSelectedMain(position, selection);
-                } else {
-                    Toast.makeText(getActivity(), "Данные еще не заполнены", Toast.LENGTH_SHORT).show();
-                }*/
             }
         });
 
