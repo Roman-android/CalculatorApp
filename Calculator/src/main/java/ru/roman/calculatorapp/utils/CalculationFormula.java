@@ -28,7 +28,7 @@ public class CalculationFormula {
     private ArrayList<int[]> KPM_Array = new ArrayList<>();
     private ArrayList<int[]> KP_Array = new ArrayList<>();
     private int position_main, position_under;
-    private int[] KPM_1 = new int[]{50, 60, 55};
+    private int[] KPM_1 = new int[]{50, 60, 55}; // Трафареты
     private int[] KPM_2 = new int[]{6, 18};
     private int[] KP_1 = new int[]{9900, 11900, 4900};
     private int[] KP_2 = new int[]{95, 1250};
@@ -71,7 +71,9 @@ public class CalculationFormula {
         return roundedResultMetrs;
     }
 
+    //  Возврат номера враздела 2 уровня
     private int choose_KPM() {
+        // получить  массив по позиции меню первого уровня
         int [] position = KPM_Array.get(position_main);
         return position[position_under];
     }
