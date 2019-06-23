@@ -52,7 +52,57 @@
             трафарета и по длине реза.
         </item>
     </string-array>
+    //  Трафареты из нержавейки
+    <string-array name="descr_text_1_4">
+    <item>
+        Текст-1-4-1
+    </item>
+    <item>
+        Текст 1-4-2
+    </item>
+    <item>
+     Текс 1-4-3
+    </item>
+    </string-array>
 
+    //  трафареты из оцинковки
+    <string-array name="descr_text_1_5">
+    <item>
+        Текст-1-5-1
+    </item>
+    <item>
+        Текст 1-5-2
+    </item>
+    <item>
+     Текс 1-5-3
+    </item>
+    </string-array>
+//  Трафареты из пластика
+    <string-array name="descr_text_1_6">
+    <item>
+        Текст-1-6-1
+    </item>
+        <item>
+        Текст 1-6-2
+    </item>
+        <item>
+     Текс 1-6-3
+    </item>
+    </string-array>
+    //  Трафареты из пленки
+    <string-array name="descr_text_1_7">
+    <item>
+        Текст-1-7-1
+    </item>
+        <item>
+        Текст 1-7-2
+    </item>
+        <item>
+     Текс 1-7-3
+    </item>
+    </string-array>
+
+    // ВКЛАДКА №2  Буквы и хештеги из дерева
     <string-array name="descr_text_2_1">
         <item>
             Деревянные буквы могут быть изготовлены из дерева разной толщины. Они отлично смотрятся на барной стйке, витрине.
@@ -62,6 +112,8 @@
             Вместе с объемными деревянными буквами вы можете заказать резную табличку, которую можно рассчитать на другой вкладке нашего калькуялтора.
         </item>
     </string-array>
+
+    //  ВКЛАДКА №2 Буквы и хештеги из композита
     <string-array name="descr_text_2_2">
         <item>
             Буквы из композита мы изготавливаем для рекламных вывесок и различной наружной рекламы
@@ -71,10 +123,485 @@
         </item>
     </string-array>
 
+    //  ВКЛАДКА №2 Буквы и хештеги из фанеры
+    <string-array name="descr_text_2_3">
+        <item>
+            Текс 2-3-1
+        </item>
+        <item>
+            Текс 2-3-2
+        </item>
+        <item>
+            Текс 2-3-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №2 Буквы и хештеги из оргстекла
+    <string-array name="descr_text_2_4">
+        <item>
+            Текс 2-4-1
+        </item>
+        <item>
+            Текс 2-4-2
+        </item>
+        <item>
+            Текс 2-4-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №2 Буквы и хештеги из ПВХ
+    <string-array name="descr_text_2_5">
+        <item>
+            Текс 2-5-1
+        </item>
+        <item>
+            Текс 2-5-2
+        </item>
+        <item>
+            Текс 2-5-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №2 Буквы и хештеги из пенопласта
+    <string-array name="descr_text_2_6">
+        <item>
+            Текс 2-6-1
+        </item>
+        <item>
+            Текс 2-6-2
+        </item>
+        <item>
+            Текс 2-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - магнитные, цветные
     <string-array name="descr_text_3_1">
         <item>
-            Буквы из оргстекла чаще всего используются для создания рекламных и информационных надписей в помещениях.
-            ТАкже их можно использовать при создании стендов и рекламных вывесок
+            Текс 3-1-1
+        </item>
+        <item>
+            Текс 3-1-2
+        </item>
+        <item>
+            Текс 3-1-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - цветные из оцинковки
+    <string-array name="descr_text_3_2">
+        <item>
+            Текс 3-2-1
+        </item>
+        <item>
+            Текс 3-2-2
+        </item>
+        <item>
+            Текс 3-2-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из ПВХ
+    <string-array name="descr_text_3_3">
+        <item>
+            Текс 3-3-1
+        </item>
+        <item>
+            Текс 3-3-2
+        </item>
+        <item>
+            Текс 3-3-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из нержавейки
+    <string-array name="descr_text_3_4">
+        <item>
+            Текс 3-4-1
+        </item>
+        <item>
+            Текс 3-4-2
+        </item>
+        <item>
+            Текс 3-4-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из фанеры
+    <string-array name="descr_text_3_5">
+        <item>
+            Текс 3-5-1
+        </item>
+        <item>
+            Текс 3-5-2
+        </item>
+        <item>
+            Текс 3-5-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из цветного акрила
+    <string-array name="descr_text_3_6">
+        <item>
+            Текс 3-6-1
+        </item>
+        <item>
+            Текс 3-6-2
+        </item>
+        <item>
+            Текс 3-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из прозрачного оргстекла
+    <string-array name="descr_text_3_7">
+        <item>
+            Текс 3-7-1
+        </item>
+        <item>
+            Текс 3-7-2
+        </item>
+        <item>
+            Текс 3-7-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из композита
+    <string-array name="descr_text_3_8">
+        <item>
+            Текс 3-8-1
+        </item>
+    <item>
+            Текс 3-8-2
+        </item>
+    <item>
+            Текс 3-8-3
+        </item>
+</string-array>
+
+    //  ВКЛАДКА №4. РЕШЕТКИ. Металлические
+    <string-array name="descr_text_4_1">
+        <item>
+            Текс 4-1-1
+        </item>
+        <item>
+            Текс 4-1-2
+        </item>
+        <item>
+            Текс 4-1-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №4. РЕШЕТКИ. Из фанеры.
+    <string-array name="descr_text_4_2">
+        <item>
+            Текс 4-2-1
+        </item>
+        <item>
+            Текс 4-2-2
+        </item>
+        <item>
+            Текс 4-2-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №4. РЕШЕТКИ. Из ПВХ.
+    <string-array name="descr_text_4_3">
+        <item>
+            Текс 4-3-1
+        </item>
+        <item>
+            Текс 4-3-2
+        </item>
+        <item>
+            Текс 4-3-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №4. РЕШЕТКИ. Из дерева.
+    <string-array name="descr_text_4_4">
+        <item>
+            Текс 4-4-1
+        </item>
+        <item>
+            Текс 4-4-2
+        </item>
+        <item>
+            Текс 4-4-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Прозрачное
+    <string-array name="descr_text_5_1">
+        <item>
+            Текс 5-1-1
+        </item>
+        <item>
+            Текс 5-1-2
+        </item>
+        <item>
+            Текс 5-1-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Ударопрочное
+    <string-array name="descr_text_5_2">
+        <item>
+            Текс 5-2-1
+        </item>
+        <item>
+            Текс 5-2-2
+        </item>
+        <item>
+            Текс 5-2-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Затемненное
+    <string-array name="descr_text_5_3">
+        <item>
+            Текс 5-3-1
+        </item>
+        <item>
+            Текс 5-3-2
+        </item>
+        <item>
+            Текс 5-3-3
+        </item>
+    </string-array>
+
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Матовое
+    <string-array name="descr_text_5_4">
+        <item>
+            Текс 5-4-1
+        </item>
+        <item>
+            Текс 5-4-2
+        </item>
+        <item>
+            Текс 5-4-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Цветное
+    <string-array name="descr_text_5_5">
+        <item>
+            Текс 5-5-1
+        </item>
+        <item>
+            Текс 5-5-2
+        </item>
+        <item>
+            Текс 5-5-3
+        </item>
+    </string-array>
+
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Зеркальное
+    <string-array name="descr_text_5_6">
+        <item>
+            Текс 5-6-1
+        </item>
+        <item>
+            Текс 5-6-2
+        </item>
+        <item>
+            Текс 5-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №5. ИЗ ОРГСТЕКЛА. Молочное
+    <string-array name="descr_text_5_7">
+        <item>
+            Текс 5-7-1
+        </item>
+        <item>
+            Текс 5-7-2
+        </item>
+        <item>
+            Текс 5-7-3
+        </item>
+    </string-array>
+
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Полка
+    <string-array name="descr_text_6_1">
+        <item>
+            Текс 6-1-1
+        </item>
+        <item>
+            Текс 6-1-2
+        </item>
+        <item>
+            Текс 6-1-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Столик
+    <string-array name="descr_text_6_2">
+        <item>
+            Текс 6-2-1
+        </item>
+        <item>
+            Текс 6-2-2
+        </item>
+        <item>
+            Текс 6-2-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Ящик.Короб.
+    <string-array name="descr_text_6_3">
+        <item>
+            Текс 6-3-1
+        </item>
+        <item>
+            Текс 6-3-2
+        </item>
+        <item>
+            Текс 6-3-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Рамка.
+    <string-array name="descr_text_6_4">
+        <item>
+            Текс 6-4-1
+        </item>
+        <item>
+            Текс 6-4-2
+        </item>
+        <item>
+            Текс 6-4-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Подставка. Поднос.
+    <string-array name="descr_text_6_5">
+        <item>
+            Текс 6-5-1
+        </item>
+        <item>
+            Текс 6-5-2
+        </item>
+        <item>
+            Текс 6-5-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Наличник.
+    <string-array name="descr_text_6_6">
+        <item>
+            Текс 6-6-1
+        </item>
+        <item>
+            Текс 6-6-2
+        </item>
+        <item>
+            Текс 6-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Медальница.
+    <string-array name="descr_text_6_7">
+        <item>
+            Текс 6-7-1
+        </item>
+        <item>
+            Текс 6-7-2
+        </item>
+        <item>
+            Текс 6-7-3
+        </item>
+    </string-array>
+
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Елка, Дед мороз из фанеры.
+    <string-array name="descr_text_7_1">
+        <item>
+            Текс 7-1-1
+        </item>
+        <item>
+            Текс 7-1-2
+        </item>
+        <item>
+            Текс 7-1-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ.. Ростовая фигура. Мишень.
+    <string-array name="descr_text_7_2">
+        <item>
+            Текс 7-2-1
+        </item>
+        <item>
+            Текс 7-2-2
+        </item>
+        <item>
+            Текс 7-2-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7.ДЕКОР. ДЕКОРАЦИИ. Замок из ПВХ.
+    <string-array name="descr_text_7_3">
+        <item>
+            Текс 7-3-1
+        </item>
+        <item>
+            Текс 7-3-2
+        </item>
+        <item>
+            Текс 7-3-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Карта мира из ПВХ
+    <string-array name="descr_text_7_4">
+        <item>
+            Текс 7-4-1
+        </item>
+        <item>
+            Текс 7-4-2
+        </item>
+        <item>
+            Текс 7-4-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Карта мира из фанеры
+    <string-array name="descr_text_7_5">
+        <item>
+            Текс 7-5-1
+        </item>
+        <item>
+            Текс 7-5-2
+        </item>
+        <item>
+            Текс 7-5-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Карта мириа в форме наклейки
+    <string-array name="descr_text_7_6">
+        <item>
+            Текс 7-6-1
+        </item>
+        <item>
+            Текс 7-6-2
+        </item>
+        <item>
+            Текс 7-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Фоторамка из ПВХ.
+    <string-array name="descr_text_7_7">
+        <item>
+            Текс 7-7-1
+        </item>
+        <item>
+            Текс 7-7-2
+        </item>
+        <item>
+            Текс 7-7-3
         </item>
     </string-array>
 
