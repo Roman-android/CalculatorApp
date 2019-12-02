@@ -20,22 +20,30 @@ public class CalculationFormula {
     private ArrayList<int[]> KP_Array = new ArrayList<>();
     private int position_main, position_under;
     // по погонным метрам
-    private int[] KPM_1 = new int[]{50, 60, 55,150,100,70,50}; // Трафареты
+    private int[] KPM_1 = new int[]{50, 60, 55,150,100,70,50,70,50,70}; // Трафареты
     private int[] KPM_2 = new int[]{6,20,5,10,15,2}; // Буквы и Хештеги
-    private int[] KPM_3 = new int[]{150,130,17,150,5,10,10,20}; // Таблички и указатели
+    private int[] KPM_3 = new int[]{150,130,17,150,5,10,10,20,20,20}; // Таблички и указатели
     private int[] KPM_4 = new int[]{200,7,17,8}; // Решетки
     private int[] KPM_5 = new int[]{200,7,17,8,5,5,8}; // Из оргстекла
-    private int[] KPM_6 = new int[]{45,60,80,100,150,180,200}; // Из фанеры
-    private int[] KPM_7 = new int[]{45,60,80,100,150,180,200}; // ДЕКОР
+    private int[] KPM_6 = new int[]{45,60,80,100,150,180,200,200,200}; // Из фанеры
+    private int[] KPM_7 = new int[]{45,60,80,100,150}; // ДЕКОР
+    private int[] KPM_8 = new int[]{45,45}; // ЛЕКАЛА
+    private int[] KPM_9 = new int[]{45,60,45,60,45,60,45,60,45}; // ГРАВИРОВКА
+    private int[] KPM_10 = new int[]{45,60,45,60,45,60,45,60,45,45,45,45,45}; // ЛОГОТИПЫ
+    private int[] KPM_11 = new int[]{45,60,45,60}; // ИЗ ПЛЕНКИ
 
-    // по площади
-    private int[] KP_1 = new int[]{9900, 11900, 4900,15000,12000,6000,6500}; // Трафареты
+    // по площади цены
+    private int[] KP_1 = new int[]{9900, 11900, 4900,15000,12000,6000,6500,6000,6500,6000}; // Трафареты
     private int[] KP_2 = new int[]{400,1500,500,1000,500,125}; // Буквы и Хештеги
-    private int[] KP_3 = new int[]{2000,14000,600,15000,500,1200,1000,1600}; // Таблички и указатели
+    private int[] KP_3 = new int[]{2000,14000,600,15000,500,1200,1000,1600,2000,2000}; // Таблички и указатели
     private int[] KP_4 = new int[]{7000,500,600,450}; // Решетки
     private int[] KP_5 = new int[]{7000,500,600,450,1000,100,450}; // Из оргстелка
-    private int[] KP_6 = new int[]{1000,1000,1000,4000,1000,1000,1000}; // Из фаанеры
-    private int[] KP_7 = new int[]{1000,1000,1000,4000,1000,1000,1000}; // ДЕКОР
+    private int[] KP_6 = new int[]{1000,1000,1000,4000,1000,1000,1000,1000,1000}; // Из фаанеры
+    private int[] KP_7 = new int[]{1000,1000,1000,4000,1000}; // ДЕКОР
+    private int[] KP_8 = new int[]{1000,1000}; // ЛЕКАЛА
+    private int[] KP_9 = new int[]{300000,300000,250000,250000,350000,350000,350000,350000,350000}; // ГРАВИРОВКА
+    private int[] KP_10 = new int[]{1300,450,400,370,2500,2500,2500,2500,2500,5000,5000,3000,1500}; // ЛОГОТИПЫ
+    private int[] KP_11 = new int[]{1500,1000,1000,6000}; // ИЗ ПЛЕНКИ
 
     private String roundedResultMetrs,roundedResulSquare;
 
@@ -51,6 +59,10 @@ public class CalculationFormula {
         KPM_Array.add(KPM_5);
         KPM_Array.add(KPM_6);
         KPM_Array.add(KPM_7);
+        KPM_Array.add(KPM_8);
+        KPM_Array.add(KPM_9);
+        KPM_Array.add(KPM_10);
+        KPM_Array.add(KPM_11);
 
         KP_Array.add(KP_1);
         KP_Array.add(KP_2);
@@ -59,6 +71,10 @@ public class CalculationFormula {
         KP_Array.add(KP_5);
         KP_Array.add(KP_6);
         KP_Array.add(KP_7);
+        KP_Array.add(KP_8);
+        KP_Array.add(KP_9);
+        KP_Array.add(KP_10);
+        KP_Array.add(KP_11);
     }
 
     // TODO: 29.06.2017 методы (функции) для подсчета итоговой стоимости материала по погонным метрам

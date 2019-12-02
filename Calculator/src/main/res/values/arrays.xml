@@ -101,6 +101,44 @@
      Текс 1-7-3
     </item>
     </string-array>
+    //  Трафареты для пескоструйки
+    <string-array name="descr_text_1_8">
+    <item>
+        Текст-1-8-1
+    </item>
+        <item>
+        Текст 1-8-2
+    </item>
+        <item>
+     Текс 1-8-3
+    </item>
+    </string-array>
+
+    //  Трафареты из фанеры
+    <string-array name="descr_text_1_9">
+    <item>
+        Текст-1-9-1
+    </item>
+        <item>
+        Текст 1-9-2
+    </item>
+        <item>
+     Текс 1-9-3
+    </item>
+    </string-array>
+
+    //  Трафареты гигантские
+    <string-array name="descr_text_1_10">
+    <item>
+        Текст-1-10-1
+    </item>
+        <item>
+        Текст 1-10-2
+    </item>
+        <item>
+     Текс 1-10-3
+    </item>
+    </string-array>
 
     // ВКЛАДКА №2  Буквы и хештеги из дерева
     <string-array name="descr_text_2_1">
@@ -172,6 +210,32 @@
         </item>
         <item>
             Текс 2-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №2 Буквы и хештеги - золотые серебрянные
+    <string-array name="descr_text_2_7">
+        <item>
+            Текс 2-7-1
+        </item>
+        <item>
+            Текс 2-7-2
+        </item>
+        <item>
+            Текс 2-7-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №2 Буквы и хештеги из нержавейки
+    <string-array name="descr_text_2_8">
+        <item>
+            Текс 2-8-1
+        </item>
+        <item>
+            Текс 2-8-2
+        </item>
+        <item>
+            Текс 2-8-3
         </item>
     </string-array>
 
@@ -271,13 +335,39 @@
         <item>
             Текс 3-8-1
         </item>
-    <item>
+        <item>
             Текс 3-8-2
         </item>
-    <item>
+        <item>
             Текс 3-8-3
         </item>
-</string-array>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из золотого пластика
+    <string-array name="descr_text_3_9">
+        <item>
+            Текс 3-9-1
+        </item>
+        <item>
+            Текс 3-9-2
+        </item>
+        <item>
+            Текс 3-9-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №3 ТАБЛИЧКИ, УКАЗАТЕЛИ - из серебрянного пластика
+    <string-array name="descr_text_3_10">
+        <item>
+            Текс 3-10-1
+        </item>
+        <item>
+            Текс 3-10-2
+        </item>
+        <item>
+            Текс 3-10-3
+        </item>
+    </string-array>
 
     //  ВКЛАДКА №4. РЕШЕТКИ. Металлические
     <string-array name="descr_text_4_1">
@@ -513,8 +603,33 @@
         </item>
     </string-array>
 
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Мишени
+    <string-array name="descr_text_6_8">
+        <item>
+            Текс 6-8-1
+        </item>
+        <item>
+            Текс 6-8-2
+        </item>
+        <item>
+            Текс 6-8-3
+        </item>
+    </string-array>
 
-    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Елка, Дед мороз из фанеры.
+    //  ВКЛАДКА №6. ИЗ ФАНЕРЫ. Гербы.
+    <string-array name="descr_text_6_9">
+        <item>
+            Текс 6-9-1
+        </item>
+        <item>
+            Текс 6-9-2
+        </item>
+        <item>
+            Текс 6-9-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. ДЕКОРАЦИИ. (фигуры) из ПВХ
     <string-array name="descr_text_7_1">
         <item>
             Текс 7-1-1
@@ -527,7 +642,7 @@
         </item>
     </string-array>
 
-    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ.. Ростовая фигура. Мишень.
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ.ДЕКОРАЦИИ. (фигуры) из МДФ
     <string-array name="descr_text_7_2">
         <item>
             Текс 7-2-1
@@ -540,7 +655,7 @@
         </item>
     </string-array>
 
-    //  ВКЛАДКА №7.ДЕКОР. ДЕКОРАЦИИ. Замок из ПВХ.
+    //  ВКЛАДКА №7.ДЕКОР. ДЕКОРАЦИИ. ДЕКОРАЦИИ. (фигуры) из фанеры
     <string-array name="descr_text_7_3">
         <item>
             Текс 7-3-1
@@ -553,7 +668,7 @@
         </item>
     </string-array>
 
-    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Карта мира из ПВХ
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. ДЕКОРАЦИИ. (фигуры) из дерева
     <string-array name="descr_text_7_4">
         <item>
             Текс 7-4-1
@@ -566,7 +681,7 @@
         </item>
     </string-array>
 
-    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Карта мира из фанеры
+    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. (фигуры) из металла
     <string-array name="descr_text_7_5">
         <item>
             Текс 7-5-1
@@ -579,30 +694,372 @@
         </item>
     </string-array>
 
-    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Карта мириа в форме наклейки
-    <string-array name="descr_text_7_6">
+
+    //  ВКЛАДКА №8. ЛЕКАЛА. Из пластика
+    <string-array name="descr_text_8_1">
         <item>
-            Текс 7-6-1
+            Текс 8-1-1
         </item>
         <item>
-            Текс 7-6-2
+            Текс 8-1-2
         </item>
         <item>
-            Текс 7-6-3
+            Текс 8-1-3
         </item>
     </string-array>
 
-    //  ВКЛАДКА №7. ДЕКОР. ДЕКОРАЦИИ. Фоторамка из ПВХ.
-    <string-array name="descr_text_7_7">
+    //  ВКЛАДКА №8. ЛЕКАЛА. Из металла
+    <string-array name="descr_text_8_2">
         <item>
-            Текс 7-7-1
+            Текс 8-2-1
         </item>
         <item>
-            Текс 7-7-2
+            Текс 8-2-2
         </item>
         <item>
-            Текс 7-7-3
+            Текс 8-2-3
         </item>
     </string-array>
 
+    //  ВКЛАДКА №9.1 ГРАВИРОВКА. Оргстекло
+    <string-array name="descr_text_9_1">
+        <item>
+            Текс 9-1-1
+        </item>
+        <item>
+            Текс 9-1-2
+        </item>
+        <item>
+            Текс 9-1-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №9.2 ГРАВИРОВКА. Обычное стекло
+    <string-array name="descr_text_9_2">
+        <item>
+            Текс 9-2-1
+        </item>
+        <item>
+            Текс 9-2-2
+        </item>
+        <item>
+            Текс 9-2-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №9.3 ГРАВИРОВКА. На фанере
+    <string-array name="descr_text_9_3">
+        <item>
+            Текс 9-3-1
+        </item>
+        <item>
+            Текс 9-3-2
+        </item>
+        <item>
+            Текс 9-3-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №9.4 ГРАВИРОВКА. МДФ
+    <string-array name="descr_text_9_4">
+        <item>
+            Текс 9-4-1
+        </item>
+        <item>
+            Текс 9-4-2
+        </item>
+        <item>
+            Текс 9-4-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №9.5 ГРАВИРОВКА. На золотом зеркальном пластике
+    <string-array name="descr_text_9_5">
+        <item>
+            Текс 9-5-1
+        </item>
+        <item>
+            Текс 9-5-2
+        </item>
+        <item>
+            Текс 9-5-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №9.6 ГРАВИРОВКА. На серебряном зеркальном пластике
+    <string-array name="descr_text_9_6">
+        <item>
+            Текс 9-6-1
+        </item>
+        <item>
+            Текс 9-6-2
+        </item>
+        <item>
+            Текс 9-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №9.7 ГРАВИРОВКА. На золотом матовом пластике
+    <string-array name="descr_text_9_7">
+        <item>
+            Текс 9-7-1
+        </item>
+        <item>
+            Текс 9-7-2
+        </item>
+        <item>
+            Текс 9-7-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №9.8 ГРАВИРОВКА. На серебряном матовом пластике
+    <string-array name="descr_text_9_8">
+        <item>
+            Текс 9-8-1
+        </item>
+        <item>
+            Текс 9-8-2
+        </item>
+        <item>
+            Текс 9-8-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №9.9 ГРАВИРОВКА. На цветном пластике
+    <string-array name="descr_text_9_9">
+        <item>
+            Текс 9-9-1
+        </item>
+        <item>
+            Текс 9-9-2
+        </item>
+        <item>
+            Текс 9-9-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.1 ЛОГОТИП.
+    <!--
+         Из оргстекла
+         ИЗ ПВХ
+         Из фанеры
+         Из мдф
+         На золотом зеркальном пластике
+         На серебряном зеркальном пластике
+         На золотом матовом пластике
+         На серебряном матовом пластике
+         На цветном пластике
+         Из зеркальной нержавейки
+         Из аллюминия
+         Из металла
+         Из композита
+    -->
+    //  ВКЛАДКА №10.1 ЛОГОТИП. Из оргстекла
+    <string-array name="descr_text_10_1">
+        <item>
+            Текс 10-1-1
+        </item>
+        <item>
+            Текс 10-1-2
+        </item>
+        <item>
+            Текс 10-1-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.2 ЛОГОТИП. Из ПВХ
+    <string-array name="descr_text_10_2">
+        <item>
+            Текс 10-2-1
+        </item>
+        <item>
+            Текс 10-2-2
+        </item>
+        <item>
+            Текс 10-2-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.3 ЛОГОТИП.Из фанеры
+    <string-array name="descr_text_10_3">
+        <item>
+            Текс 10-3-1
+        </item>
+        <item>
+            Текс 10-3-2
+        </item>
+        <item>
+            Текс 10-3-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №10.4 ЛОГОТИП.Из мдф
+    <string-array name="descr_text_10_4">
+        <item>
+            Текс 10-4-1
+        </item>
+        <item>
+            Текс 10-4-2
+        </item>
+        <item>
+            Текс 10-4-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №10.5 ЛОГОТИП.На золотом зеркальном пластике
+    <string-array name="descr_text_10_5">
+        <item>
+            Текс 10-5-1
+        </item>
+        <item>
+            Текс 10-5-2
+        </item>
+        <item>
+            Текс 10-5-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.6 ЛОГОТИП.На серебряном зеркальном пластике
+    <string-array name="descr_text_10_6">
+        <item>
+            Текс 10-6-1
+        </item>
+        <item>
+            Текс 10-6-2
+        </item>
+        <item>
+            Текс 10-6-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.7 ЛОГОТИП.На золотом матовом пластике
+    <string-array name="descr_text_10_7">
+        <item>
+            Текс 10-7-1
+        </item>
+        <item>
+            Текс 10-7-2
+        </item>
+        <item>
+            Текс 10-7-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.8 ЛОГОТИП.На серебряном матовом пластике
+    <string-array name="descr_text_10_8">
+        <item>
+            Текс 10-8-1
+        </item>
+        <item>
+            Текс 10-8-2
+        </item>
+        <item>
+            Текс 10-8-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.9 На цветном пластике
+    <string-array name="descr_text_10_9">
+        <item>
+            Текс 10-9-1
+        </item>
+        <item>
+            Текс 10-9-2
+        </item>
+        <item>
+            Текс 10-9-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №10.10 Из зеркальной нержавейки
+    <string-array name="descr_text_10_10">
+        <item>
+            Текс 10-10-1
+        </item>
+        <item>
+            Текс 10-10-2
+        </item>
+        <item>
+            Текс 10-10-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №10.11 Из аллюминия
+    <string-array name="descr_text_10_11">
+        <item>
+            Текс 10-11-1
+        </item>
+        <item>
+            Текс 10-11-2
+        </item>
+        <item>
+            Текс 10-11-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.12 Из металла
+    <string-array name="descr_text_10_12">
+        <item>
+            Текс 10-12-1
+        </item>
+        <item>
+            Текс 10-12-2
+        </item>
+        <item>
+            Текс 10-12-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №10.13 Из композита
+    <string-array name="descr_text_10_13">
+        <item>
+            Текс 10-13-1
+        </item>
+        <item>
+            Текс 10-13-2
+        </item>
+        <item>
+            Текс 10-13-3
+        </item>
+    </string-array>
+
+    //  ВКЛАДКА №11.1 Из ПЛЕНКИ. Наклейки полноцвет
+    <string-array name="descr_text_11_1">
+        <item>
+            Текс 11-1-1
+        </item>
+        <item>
+            Текс 11-1-2
+        </item>
+        <item>
+            Текс 11-1-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №11.2 Из ПЛЕНКИ. Наклейки из ORACAL
+    <string-array name="descr_text_11_2">
+        <item>
+            Текс 11-2-1
+        </item>
+        <item>
+            Текс 11-2-2
+        </item>
+        <item>
+            Текс 11-2-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №11.3 Из ПЛЕНКИ. Трафареты из ORACAL
+    <string-array name="descr_text_11_3">
+        <item>
+            Текс 11-3-1
+        </item>
+        <item>
+            Текс 11-3-2
+        </item>
+        <item>
+            Текс 11-3-3
+        </item>
+    </string-array>
+    //  ВКЛАДКА №11.4 Из ПЛЕНКИ. Трафареты для пескоструйки
+    <string-array name="descr_text_11_4">
+        <item>
+            Текс 11-4-1
+        </item>
+        <item>
+            Текс 11-4-2
+        </item>
+        <item>
+            Текс 11-4-3
+        </item>
+    </string-array>
 </resources>
